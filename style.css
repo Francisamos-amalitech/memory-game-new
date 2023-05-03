@@ -1,6 +1,22 @@
+/* ---- CSS RESET ------ */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Atkinson Hyperlegible', sans-serif;
+}
+
+
+/* -------CSS VARIABLES ------- */
+
+:root{
+    --gold-color:#FDA214;
+    --very-light-blue:#BCCED9;
+    --navy-blue:#304859;
+    --dark-blue:#152938;
+    --light-gray:#F2F2F2;
+    --light-blue:#7191A5;
+    --sea-blue:#6395B8;
+    --white-color:#FCFCFC;
 }
