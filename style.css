@@ -51,7 +51,7 @@ header .start-logo{
     left:50%;
     transform:translate(-50%, -50%);
     border-radius:20px;
-    padding:30px 50px 30px;
+    padding:30px 60px 30px;
     margin-top:50px;
 }
 
@@ -239,14 +239,15 @@ header .start-logo{
 
 @media screen and (max-width:600px){
       
- 
 
     .container{
         width:90%;
+        padding:30px 30px 30px;
     }
 
     header .start-logo{
         font-size:30px;
+        padding:90px 0;
     }
 
     .select-theme{
