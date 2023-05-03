@@ -238,10 +238,11 @@ header .start-logo{
 /* ----RESPONSIVENESS ------- */
 
 @media screen and (max-width:600px){
-
+      
+ 
 
     .container{
-        width:95%;
+        width:90%;
     }
 
     header .start-logo{
@@ -249,16 +250,28 @@ header .start-logo{
     }
 
     .select-theme{
-        font-size:15px;
+        font-size:14px;
     }
 
     .theme-buttons a{
-        font-size:12px;
+        font-size:14px;
+    }
+
+    .number-players{
+        font-size:14px;
+    }
+
+    .number-of-players a{
+        font-size:14px;
     }
 
     .number-of-players .radius{
         padding:5px 20px;
         margin:0 5px;
+    }
+
+    .grid-size{
+        font-size:14px;
     }
 
     .grid-buttons a{
