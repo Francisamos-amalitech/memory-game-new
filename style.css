@@ -237,19 +237,22 @@ header .start-logo{
 
 /* ----RESPONSIVENESS ------- */
 
-@media(max-width:600px){
+@media screen and (max-width:600px){
 
 
     .container{
-        width:85%;
+        width:95%;
     }
 
     header .start-logo{
         font-size:30px;
     }
 
+    .select-theme{
+        font-size:15px;
+    }
 
-    .theme-buttons{
+    .theme-buttons a{
         font-size:12px;
     }
 
@@ -258,8 +261,12 @@ header .start-logo{
         margin:0 5px;
     }
 
+    .grid-buttons a{
+        font-size:12px;
+    }
+
     .start-game{
-      width:100%;
       padding:10px 20px;
+      font-size:15px;
     }
 }
