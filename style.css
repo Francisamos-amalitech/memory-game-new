@@ -21,8 +21,10 @@
     --white-color:#FCFCFC;
 }
 
-a{
-    text-decoration:none;
+
+body{
+    font-size:18px;
+    font-weight:bold;
 }
 
 
@@ -36,7 +38,8 @@ header{
 header .start-logo{
     color:var(--white-color);
     text-align:center;
-    padding:100px 0;
+    padding:50px 0;
+    font-size:48px;
 }
 
 
@@ -44,25 +47,38 @@ header .start-logo{
     width:40%;
     background:var(--white-color);
     position:absolute;
-    top:30%;
+    top:50%;
     left:50%;
     transform:translate(-50%, -50%);
     border-radius:20px;
     padding:30px 50px 30px;
+    margin-top:50px;
 }
 
+
+
+/* ------ SELECT THEME ------- */
 .select-theme{
     color:var(--light-blue);
     font-size:20px;
     margin-bottom:15px;
 }
 
+
+
+/* -----THEME BUTTONS ----- */
 .theme-buttons{
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:30px;
 
+}
+
+.theme-buttons a{
+    text-decoration:none;
+    font-size:23px;
+    font-weight:900;
 }
 
 .theme-number{
@@ -72,12 +88,15 @@ header .start-logo{
     padding:10px 20px;
     border-radius:50px;
     text-align:center;
-    font-size:23px;
-    font-weight:900;
+    transition:background .3s;
+}
+
+.theme-number:hover{
+    background:var(--sea-blue);
 }
 
 .theme-icons{
-    background:var(--light-blue);
+    background:var(--very-light-blue);
     color:var(--white-color);
     width:50%;
     padding:10px 20px;
@@ -85,4 +104,162 @@ header .start-logo{
     text-align:center;
     font-size:23px;
     font-weight:900;
+    transition:background .3s;
+}
+
+.theme-icons:hover{
+    background:var(--sea-blue);
+}
+/* -----END OF THEME BUTTONS ----- */
+
+
+
+
+/* -----NUMBERS OF PLAYERS ----- */
+.number-players{
+    color:var(--light-blue);
+    font-size:20px;
+    margin:30px 0 20px 0;
+}
+
+.number-of-players a{
+    text-decoration:none;
+    color:var(--white-color);
+    font-size:20px;
+    font-weight:800;
+}
+
+
+.number-of-players{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.number-of-players .radius{
+    background:var(--very-light-blue);
+    padding:12px 50px;
+    border-radius:25px;
+    transition:background .3s;
+}
+
+.number-of-players .radius:hover{
+    background:var(--sea-blue);
+}
+
+.number-of-players .active{
+    background:var(--navy-blue);
+}
+
+/* -----END OF NUMBERS OF PLAYERS ----- */
+
+
+/* -----GRID SIZE ----- */
+
+.grid-size{
+    color:var(--light-blue);
+    font-size:20px;
+    margin:30px 0 20px 0;
+}
+
+
+
+/* -----THEME BUTTONS ----- */
+.grid-buttons{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+
+}
+
+.grid-buttons a{
+    text-decoration:none;
+    font-size:23px;
+    font-weight:900;
+}
+
+.grid-4x4{
+    background:var(--navy-blue);
+    color:var(--white-color);
+    width:50%;
+    padding:10px 20px;
+    border-radius:50px;
+    text-align:center;
+    transition:background .3s;
+}
+
+.grid-4x4:hover{
+    background:var(--sea-blue);
+}
+
+.grid-6x6{
+    background:var(--very-light-blue);
+    color:var(--white-color);
+    width:50%;
+    padding:10px 20px;
+    border-radius:50px;
+    text-align:center;
+    font-size:23px;
+    font-weight:900;
+}
+
+.grid-6x6:hover{
+    background:var(--sea-blue);
+}
+
+/* -----END OF GRID SIZE ----- */
+
+/* --- START GAME BUTTON */
+.start-game{
+    width:100%;
+    background:var(--gold-color);
+    display:inline-block;
+    padding:16px 40px;
+    margin:35px 0;
+    border-radius:50px;
+    color:var(--white-color);
+    text-align:center;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:900;
+    transition:background .3s;
+}
+
+.start-game:hover{
+    background:#fccb7d;
+}
+
+
+
+
+
+
+/* ----RESPONSIVENESS ------- */
+
+@media(max-width:600px){
+
+
+    .container{
+        width:85%;
+    }
+
+    header .start-logo{
+        font-size:30px;
+    }
+
+
+    .theme-buttons{
+        font-size:12px;
+    }
+
+    .number-of-players .radius{
+        padding:5px 20px;
+        margin:0 5px;
+    }
+
+    .start-game{
+      width:100%;
+      padding:10px 20px;
+    }
 }
