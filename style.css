@@ -271,9 +271,7 @@ nav{
 
 
 /* ------ ------PLAYER SECTION STYLING --------------- */
-section{
-    padding:100px 0;
-}
+
 
 .players-container{
     display:grid;
@@ -319,55 +317,89 @@ section{
 
 
 /* --------4X4 MODE ------------------- */
-.card {
-    position: relative;
-    width: 100px;
-    height: 100px;
+.card-container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
     cursor: pointer;
     padding:2% 8%;
 }
 
-.card-front,
-.card-back {
-    position: absolute;
-    border-radius: 5px;
-    width: 80px;
-    height: 80px;
-    background: #282A3A;
+
+.card{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.card-front{
+    width:80px;
+    height:80px;
+    background:var(--dark-blue);
     border-radius:50%;
-    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
-    backface-visibility: hidden;
 }
-
-
-.card-back {
-    font-size: 28pt;
-    text-align: center;
-    line-height: 100px;
-    background: #FDF8E6;
-    transform: rotateY(180deg) rotateZ(50deg);
-    user-select: none;
-}
-
-.card.flipped .card-front {
-    transform: rotateY(180deg) rotateZ(50deg);
-}
-
-.card.flipped .card-back {
-    transform: rotateY(0) rotateZ(0);
-}
-
-
-
-
-
-
-
-
-
-
-
 /* ----END OF NUMBERS PAGE STYLING------ */
+
+
+/* ----- TIME AND MOVES STYLING  */
+.time-container{
+   
+    padding:2% 8%;
+    border:2px solid red;
+}
+
+.time-info{
+    width:25%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:var(--very-light-blue);
+    margin:20px;
+    padding:18px 25px;
+    border-radius:8px;
+    transition:background .3s;
+}
+
+.time-info h2{
+    font-size:17px;
+    color:var(--sea-blue);
+}
+
+.time-info span{
+    font-size:30px;
+    color:var(--navy-blue);
+}
+
+
+/* ----- END OF TIME AND MOVES STYLING  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
