@@ -328,7 +328,7 @@ nav{
 }
 
 
-.card{
+/* .card{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:30px;
@@ -339,7 +339,7 @@ nav{
     height:80px;
     background:var(--dark-blue);
     border-radius:50%;
-}
+} */
 /* ----END OF NUMBERS PAGE STYLING------ */
 
 
