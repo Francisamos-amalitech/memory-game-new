@@ -63,4 +63,4 @@ const timeGenerator = () => {
 
 let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
 let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
-timeValue.innerHTML =  ``
+timeValue.innerHTML = `${minutesValue}:${secondsValue}`;
