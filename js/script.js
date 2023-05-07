@@ -8,11 +8,10 @@ function allFunctions() {
 
   // SELECTORS
   const theGameElement = document.querySelector(".the-game");
-  const theMessage  = document.querySelector(".the-message");
   const startingGameElement = document.querySelector(".starting-game");
   const gameDetailsElement = document.querySelector(".game-details");
   const overlayElement = document.querySelector(".overlay");
-  const gameContainer = overlayElement.querySelector(".game-container");
+  const infoContainer = overlayElement.querySelector(".info-container");
 
 
 
@@ -402,27 +401,24 @@ function allFunctions() {
       overlayElement.querySelector(".time-result").textContent =
         timer.textContent;
       overlayElement.querySelector(
-        ".game-result.moves-result"
+        ".info-result.moves-result"
       ).textContent = `${
         document.querySelector(".detail-box .moves").textContent
       } Moves`;
     } else if (activeChoices[1] === "2-players") {
-      gameContainer.innerHTML = "";
-      theMessage.innerHTML ="Player 2 Wins!";
+      infoContainer.innerHTML = "";
       for (let i = 1; i <= 2; i++) {
         generateInfoBox(i);
       }
       addWinnerPlayer();
     } else if (activeChoices[1] === "3-players") {
-      gameContainer.innerHTML = "";
-      theMessage.innerHTML="Player 3 Wins!";
+      infoContainer.innerHTML = "";
       for (let i = 1; i <= 3; i++) {
         generateInfoBox(i);
       }
       addWinnerPlayer();
     } else if (activeChoices[1] === "4-players") {
-      gameContainer.innerHTML = "";
-      theMessage.innerHTML="Player 4 Wins!";
+      infoContainer.innerHTML = "";
       for (let i = 1; i <= 4; i++) {
         generateInfoBox(i);
       }
@@ -439,36 +435,36 @@ function allFunctions() {
     const playerPairs =
       gameDetailsElement.children[player - 1].querySelector(".moves").dataset
         .pairs;
-    const gameBox = document.createElement("div");
-    gameBox.classList.add("game-box");
-    const gameName = document.createElement("p");
-    gameName.classList.add("game-name");
-    gameName.textContent = `Player ${player}`;
-    const gameResCont = document.createElement("div");
-    gameResCont.classList.add("game-result-container");
-    const gameResult = document.createElement("p");
-    gameResult.classList.add("game-result");
-    gameResult.textContent = `${playerMoves} Moves`;
+    const infoBox = document.createElement("div");
+    infoBox.classList.add("info-box");
+    const infoName = document.createElement("p");
+    infoName.classList.add("info-name");
+    infoName.textContent = `Player ${player}`;
+    const infoResCont = document.createElement("div");
+    infoResCont.classList.add("info-result-container");
+    const infoResult = document.createElement("p");
+    infoResult.classList.add("info-result");
+    infoResult.textContent = `${playerMoves} Moves`;
     const infoPairs = document.createElement("p");
-    gamePairs.classList.add("game-pairs", "game-result");
-    gamePairs.textContent = `${playerPairs} Pairs`;
-    gameResCont.append(gameResult, gamePairs);
-    gameBox.append(gameName, gameResCont);
-    gameContainer.appendChild(gameBox);
+    infoPairs.classList.add("info-pairs", "info-result");
+    infoPairs.textContent = `${playerPairs} Pairs`;
+    infoResCont.append(infoResult, infoPairs);
+    infoBox.append(infoName, infoResCont);
+    infoContainer.appendChild(infoBox);
   }
 
   // add winner player if the game has been over and there's more than one player
   function addWinnerPlayer() {
-    const gamePairs = Array.from(
-      overlayElement.querySelectorAll(".game-pairs")
+    const infoPairs = Array.from(
+      overlayElement.querySelectorAll(".info-pairs")
     );
-    let newArray = gamePairs
+    let newArray = infoPairs
       .map((ele, index) => {
         return { val: parseInt(ele.textContent), index: index };
       })
       .sort((a, b) => b.val - a.val);
-    const gameBoxes = overlayElement.querySelectorAll(".game-box");
-    gameBoxes[newArray[0].index].classList.add("active");
+    const infoBoxes = overlayElement.querySelectorAll(".info-box");
+    infoBoxes[newArray[0].index].classList.add("active");
   }
 
   // select the restart game buttons and loop over them and add an event listener to restart the game with the same active choices
