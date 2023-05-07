@@ -1,3 +1,5 @@
+/* ----- CSS RESET ------ */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +7,10 @@
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
+
+
+
+/* ----VARIABLES------- */
 
 :root {
   --active-background: #304859;
