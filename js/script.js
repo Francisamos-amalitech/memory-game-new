@@ -2,15 +2,21 @@
 const sourceMarkup = document.body.innerHTML;
 
 // put all of the functional things in a function called (allOfIt)
-function allOfIt() {
-  // elements
+
+
+function allFunctions() {
+
+  // SELECTORS
   const theGameElement = document.querySelector(".the-game");
+  const theMessage  = document.querySelector(".the-message");
   const startingGameElement = document.querySelector(".starting-game");
   const gameDetailsElement = document.querySelector(".game-details");
   const overlayElement = document.querySelector(".overlay");
-  const infoContainer = overlayElement.querySelector(".info-container");
+  const gameContainer = overlayElement.querySelector(".game-container");
 
-  // game choices
+
+
+  //----- SELECTS TYPE OF GAME
   let theGridSize = 4;
   let numberGameArray = [];
   let iconsGameArray = [];
@@ -51,7 +57,7 @@ function allOfIt() {
     startTheGame(activeChoices);
   }
 
-  // add an evnet listener to the start game button
+  // add an event listener to the start game button
   startGame.addEventListener("click", checkActiveChoice);
 
   // all the game needs
@@ -127,6 +133,7 @@ function allOfIt() {
 
   // save all the choices in a variable
   const allChoices = document.querySelectorAll(".choices .choice");
+
   function handlingChoices() {
     // loop over all of the choices
     allChoices.forEach((choice) => {
@@ -176,19 +183,19 @@ function allOfIt() {
   // generate the number function that will return an array of objects
   function generateNums() {
     numberGameArray = [];
-    let gmaeSize = 8;
+    let gameSize = 8;
     if (theGridSize === 6) {
-      gmaeSize = 18;
+      gameSize = 18;
     }
 
-    for (let i = 1; i <= gmaeSize; i++) {
+    for (let i = 1; i <= gameSize; i++) {
       const obj = {
         value: i,
         dataId: i,
       };
       numberGameArray.push(obj);
     }
-    for (let i = 1; i <= gmaeSize; i++) {
+    for (let i = 1; i <= gameSize; i++) {
       const obj = {
         value: i,
         dataId: i,
@@ -291,7 +298,7 @@ function allOfIt() {
     return isGameOver;
   }
 
-  // managing time 
+  // ---- SETTING THE TIME
   const timer = document.querySelector(".timer");
   let seconds = 0;
   let minutes = 0;
@@ -309,9 +316,12 @@ function allOfIt() {
       timer.innerHTML = `${minutes}:0${seconds}`;
     }
   }
+
+
   let theIntervalOfTime;
 
   // managing the game details depending on the players that are playing
+  
   function manageGameDetails(players) {
     if (players === "1-player") {
       gameDetailsElement.classList.remove("d-none");
@@ -392,24 +402,27 @@ function allOfIt() {
       overlayElement.querySelector(".time-result").textContent =
         timer.textContent;
       overlayElement.querySelector(
-        ".info-result.moves-result"
+        ".game-result.moves-result"
       ).textContent = `${
         document.querySelector(".detail-box .moves").textContent
       } Moves`;
     } else if (activeChoices[1] === "2-players") {
-      infoContainer.innerHTML = "";
+      gameContainer.innerHTML = "";
+      theMessage.innerHTML ="Player 2 Wins!";
       for (let i = 1; i <= 2; i++) {
         generateInfoBox(i);
       }
       addWinnerPlayer();
     } else if (activeChoices[1] === "3-players") {
-      infoContainer.innerHTML = "";
+      gameContainer.innerHTML = "";
+      theMessage.innerHTML="Player 3 Wins!";
       for (let i = 1; i <= 3; i++) {
         generateInfoBox(i);
       }
       addWinnerPlayer();
     } else if (activeChoices[1] === "4-players") {
-      infoContainer.innerHTML = "";
+      gameContainer.innerHTML = "";
+      theMessage.innerHTML="Player 4 Wins!";
       for (let i = 1; i <= 4; i++) {
         generateInfoBox(i);
       }
@@ -426,36 +439,36 @@ function allOfIt() {
     const playerPairs =
       gameDetailsElement.children[player - 1].querySelector(".moves").dataset
         .pairs;
-    const infoBox = document.createElement("div");
-    infoBox.classList.add("info-box");
-    const infoName = document.createElement("p");
-    infoName.classList.add("info-name");
-    infoName.textContent = `Player ${player}`;
-    const infoResCont = document.createElement("div");
-    infoResCont.classList.add("info-result-container");
-    const infoResult = document.createElement("p");
-    infoResult.classList.add("info-result");
-    infoResult.textContent = `${playerMoves} Moves`;
+    const gameBox = document.createElement("div");
+    gameBox.classList.add("game-box");
+    const gameName = document.createElement("p");
+    gameName.classList.add("game-name");
+    gameName.textContent = `Player ${player}`;
+    const gameResCont = document.createElement("div");
+    gameResCont.classList.add("game-result-container");
+    const gameResult = document.createElement("p");
+    gameResult.classList.add("game-result");
+    gameResult.textContent = `${playerMoves} Moves`;
     const infoPairs = document.createElement("p");
-    infoPairs.classList.add("info-pairs", "info-result");
-    infoPairs.textContent = `${playerPairs} Pairs`;
-    infoResCont.append(infoResult, infoPairs);
-    infoBox.append(infoName, infoResCont);
-    infoContainer.appendChild(infoBox);
+    gamePairs.classList.add("game-pairs", "game-result");
+    gamePairs.textContent = `${playerPairs} Pairs`;
+    gameResCont.append(gameResult, gamePairs);
+    gameBox.append(gameName, gameResCont);
+    gameContainer.appendChild(gameBox);
   }
 
   // add winner player if the game has been over and there's more than one player
   function addWinnerPlayer() {
-    const infoPairs = Array.from(
-      overlayElement.querySelectorAll(".info-pairs")
+    const gamePairs = Array.from(
+      overlayElement.querySelectorAll(".game-pairs")
     );
-    let newArray = infoPairs
+    let newArray = gamePairs
       .map((ele, index) => {
         return { val: parseInt(ele.textContent), index: index };
       })
       .sort((a, b) => b.val - a.val);
-    const infoBoxes = overlayElement.querySelectorAll(".info-box");
-    infoBoxes[newArray[0].index].classList.add("active");
+    const gameBoxes = overlayElement.querySelectorAll(".game-box");
+    gameBoxes[newArray[0].index].classList.add("active");
   }
 
   // select the restart game buttons and loop over them and add an event listener to restart the game with the same active choices
@@ -481,16 +494,16 @@ function allOfIt() {
 }
 
 // ---- RUN ALL OF IT FUNCTION
-allOfIt();
+allFunctions();
 
 // --- NEWGAME FUNCTIONS-------
 function setUpNewGame() {
   const newGame = document.querySelectorAll(".new-game");
   newGame.forEach((btn) => {
     btn.addEventListener("click", function () {
-      // window.location.reload()
+
       document.body.innerHTML = sourceMarkup;
-      allOfIt();
+      allFunctions();
     });
   });
 }
