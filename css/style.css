@@ -13,7 +13,7 @@
 /* ----VARIABLES------- */
 
 :root {
-  --active-background: #304859;
+  --sea-blue: #304859;
   --non-active-background: #bcced9;
   --hover-background: #6395b8;
   --yellow-background: #fda214;
@@ -26,7 +26,7 @@
 
 
 
-/* start the starting game  */
+/* ------ GAME STARTS ---------  */
 
 .starting-game {
   min-height: 100vh;
@@ -58,6 +58,7 @@
 
 .starting-game .box .choose {
   color: #7191af;
+  
 }
 
 
@@ -89,22 +90,23 @@
 
 
 .starting-game .box .choices div.active {
-  background-color: var(--active-background);
+  background-color: var(--sea-blue);
 }
 
 
-
+/* ------------START GAME BUTTON ----------- */
 .starting-game button {
-  background-color: var(--yellow-background);
-  color: white;
   width: 100%;
-  padding: 10px 5px;
-  border-radius: 15px;
+  padding: 17px 5px;
+  border-radius:50px;
   outline: none;
   border: none;
   margin: 18px 0 0;
   font-size: 20px;
+  font-weight:400;
   transition: 0.3s;
+  background-color: var(--yellow-background);
+  color: white;
 }
 
 
@@ -112,22 +114,22 @@
   background-color: #da8600;
 }
 
-/* end the starting game  */
+/* ----- END OF STARTING GAME -----  */
 
 
 
 
 
-/* start the game  */
+/* -------START THE GAME ------- */
 .the-game {
-  padding: 0 5em;
+   padding:2% 8%;
 }
 
 
 
-/* start header  */
+/* ---- START NAV ------ -*/
 .the-game header {
-  padding: 2em 0;
+  padding:20px  0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -212,7 +214,7 @@
   position: absolute;
   width: 150%;
   height: 150%;
-  background-color: var(--active-background);
+  background-color: var(--sea-blue);
   border-radius: 50%;
   transition: 0.3s;
 }
@@ -471,61 +473,61 @@ body.over .overlay .box .btn-container button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ----RESPONSIVENESS  */
 
 
 @media (max-width: 600px) {
+
+  .starting-game .box .choose{
+    font-size:17px;
+  }
+
+
+
+  .starting-game h1{
+    font-size:25px;
+  }
+
   .the-grid {
-    min-height: 42vh;
+    min-height:42vh;
   }
 
   html {
     font-size: 9px;
   }
 
-  .the-grid.grid-4 .row .icon {
-    width: 10rem;
-    height: 10rem;
-    font-size: 3.5rem;
+  .the-grid.grid-4 .row .icon{
+    width:90%;
+    font-size:18px;
+    padding:20px;
   }
 
   .starting-game .box{
     width:90%;
   }
+
+
+  .game-details  {
+      border:2px solid red;
+      
+  }
 }
 
 
 @media (max-width: 771px) {
+  .starting-game .box{
+    width:75%;
+  }
+
+
+
   .game-details .detail-box {
     flex-direction: column;
     border-radius: 5px;
     font-size: 1.5rem;
   }
+
+
 }
 
 

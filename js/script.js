@@ -1,11 +1,7 @@
 // save the markup of the html page in variable
 const sourceMarkup = document.body.innerHTML;
 
-// put all of the functional things in a function called (allOfIt)
-
-
 function allFunctions() {
-
   // SELECTORS
   const theGameElement = document.querySelector(".the-game");
   const startingGameElement = document.querySelector(".starting-game");
