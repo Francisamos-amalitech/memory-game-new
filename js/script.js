@@ -13,8 +13,11 @@ function allFunctions() {
 
   //----- SELECTS TYPE OF GAME
   let theGridSize = 4;
+
   let numberGameArray = [];
+
   let iconsGameArray = [];
+
   const iconsMarkupArray = [
     "",
     `<img src="images/car.png">`,
@@ -36,12 +39,13 @@ function allFunctions() {
   // select the start game button
   const startGame = document.querySelector(".start-game");
 
+
   // function to check the active choices and start the game
   function checkActiveChoice() {
     // select all the choices
-    const allChocies = Array.from(document.querySelectorAll(".choice"));
+    const allChoices = Array.from(document.querySelectorAll(".choice"));
     // loop over them and put them in a new array called active choices
-    activeChoices = allChocies
+    activeChoices = allChoices
       .filter((choice) => {
         return choice.classList.contains("active");
       })
