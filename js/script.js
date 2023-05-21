@@ -1,10 +1,10 @@
 // save the markup of the html page in variable
-const sourceMarkup = document.body.innerHTML;
+const entireMarkup = document.body.innerHTML;
 
 function allFunctions() {
   // SELECTORS
   const theGameElement = document.querySelector(".the-game");
-  const startingGameElement = document.querySelector(".starting-game");
+  const startingGameElement = document.querySelector(".start-game");
   const gameDetailsElement = document.querySelector(".game-details");
   const overlayElement = document.querySelector(".overlay");
   const infoContainer = overlayElement.querySelector(".info-container");
@@ -19,7 +19,6 @@ function allFunctions() {
   let iconsGameArray = [];
 
   const iconsMarkupArray = [
-    "",
     `<img src="images/car.png">`,
     `<img src="images/bug.png">`,
     `<img src="images/flask.png">`,
@@ -29,7 +28,6 @@ function allFunctions() {
     `<img src="images/moon.png">`,
     `<img src="images/anchor.png">`,
     `<img src="images/snowflake.png">`,
-    
   ];
 
 
@@ -37,7 +35,7 @@ function allFunctions() {
   let activeChoices;
 
   // select the start game button
-  const startGame = document.querySelector(".start-game");
+  const startGame = document.querySelector(".start-game2");
 
 
   // function to check the active choices and start the game
@@ -498,7 +496,7 @@ function setUpNewGame() {
   newGame.forEach((btn) => {
     btn.addEventListener("click", function () {
 
-      document.body.innerHTML = sourceMarkup;
+      document.body.innerHTML = entireMarkup;
       allFunctions();
     });
   });

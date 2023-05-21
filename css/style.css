@@ -31,7 +31,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 /* ------ GAME STARTS ---------  */
 
-.starting-game {
+.start-game {
   min-height: 100vh;
   background-color: #152938;
   display: flex;
@@ -42,7 +42,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 
 
-.starting-game h1 {
+.start-game h1 {
   color: white;
   margin-bottom:50px;
   font-size:48px;
@@ -50,7 +50,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 
 
-.starting-game .box {
+.start-game .box {
   background-color: white;
   padding: 36px 40px;
   border-radius: 10px;
@@ -59,13 +59,13 @@ DATE: 10TH MAY, 2023 TILL DATE
   width: 40%;
 }
 
-.starting-game .box .choose {
+.start-game .box .choose {
   color: #7191af;
   
 }
 
 
-.starting-game .box .choices {
+.start-game .box .choices {
   display: flex;
   gap: 3%;
   margin:25px 0;
@@ -73,7 +73,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 
 
-.starting-game .box .choices div {
+.start-game .box .choices div {
   color: white;
   background-color: var(--non-active-background);
   flex: 1;
@@ -86,19 +86,19 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 
 
-.starting-game .box .choices div:hover {
+.start-game .box .choices div:hover {
   background-color: #38688d;
 }
 
 
 
-.starting-game .box .choices div.active {
+.start-game .box .choices div.active {
   background-color: var(--sea-blue);
 }
 
 
 /* ------------START GAME BUTTON ----------- */
-.starting-game button {
+.start-game button {
   width: 100%;
   padding: 17px 5px;
   border-radius:50px;
@@ -113,7 +113,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 }
 
 
-.starting-game button:hover {
+.start-game button:hover {
   background-color: #da8600;
 }
 
@@ -481,13 +481,13 @@ body.over .overlay .box .btn-container button {
 
 @media (max-width: 600px) {
 
-  .starting-game .box .choose{
+  .start-game .box .choose{
     font-size:17px;
   }
 
 
 
-  .starting-game h1{
+  .start-game h1{
     font-size:25px;
   }
 
@@ -505,7 +505,7 @@ body.over .overlay .box .btn-container button {
     padding:20px;
   }
 
-  .starting-game .box{
+  .start-game .box{
     width:90%;
   }
 
@@ -517,8 +517,14 @@ body.over .overlay .box .btn-container button {
 }
 
 
+
+
+
+
+
+
 @media (max-width: 771px) {
-  .starting-game .box{
+  .start-game .box{
     width:75%;
   }
 
