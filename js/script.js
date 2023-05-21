@@ -1,9 +1,10 @@
-// save the markup of the html page in variable
+
+// This is the mark up of html page stored in a variable
 const entireMarkup = document.body.innerHTML;
 
 function allFunctions() {
   // SELECTORS
-  const theGameElement = document.querySelector(".the-game");
+  const theGameElement = document.querySelector(".game-setting");
   const startingGameElement = document.querySelector(".start-game");
   const gameDetailsElement = document.querySelector(".game-details");
   const overlayElement = document.querySelector(".overlay");
@@ -59,8 +60,8 @@ function allFunctions() {
 
   // all the game needs
   let activeIcons = 0;
-  let ele1;
-  let ele2;
+  let element1;
+  let element2;
   let arrayOfTwoClickedIcons = [];
   let lockFlip = false;
   let isGameOver = false;
@@ -73,15 +74,18 @@ function allFunctions() {
     });
   }
 
-  // the function that will run when the icons has been clicked
+  // This runs when the icons has been clicked
   const handlingClickIcons = function (e) {
     const theIcon = e.currentTarget;
+
     // check if the lock flip is not false
     if (!lockFlip) {
+
       // check if the the array of two clicked elements's length is equal to 2, if so empty the array
       if (arrayOfTwoClickedIcons.length === 2) {
         arrayOfTwoClickedIcons = [];
       }
+
       // check if the active icons no equal to 2
       if (activeIcons !== 2) {
         // check if the icon doesn't have the class active
@@ -91,17 +95,17 @@ function allFunctions() {
           activeIcons++;
           if (activeIcons === 1) {
             // make the ele1 = the icon, and push this [ele1] to the [arrayOfTwoClickedIcons]
-            ele1 = theIcon;
-            arrayOfTwoClickedIcons.push(ele1);
+            element1 = theIcon;
+            arrayOfTwoClickedIcons.push(element1);
           } else if (activeIcons === 2) {
             // the same with the second clicked icon but i you have to make the [lockFlip] = true, and make activeIcons = 0;
-            ele2 = theIcon;
-            arrayOfTwoClickedIcons.push(ele2);
+            element2 = theIcon;
+            arrayOfTwoClickedIcons.push(element2);
             lockFlip = true;
             activeIcons = 0;
             handlingMoves();
             // check if the two clicked icons are equal
-            if (!areEqual(ele1.dataset.id, ele2.dataset.id)) {
+            if (!areEqual(element1.dataset.id, element2.dataset.id)) {
               // if not
               setTimeout(() => {
                 addNotActiveClass(arrayOfTwoClickedIcons);
@@ -116,8 +120,8 @@ function allFunctions() {
                 const managePairs = activePlayer.querySelector(".moves");
                 ++managePairs.dataset.pairs;
                 lockFlip = false;
-                ele1.classList.add("disabled");
-                ele2.classList.add("disabled");
+                element1.classList.add("disabled");
+                element2.classList.add("disabled");
               }, 500);
             }
           }

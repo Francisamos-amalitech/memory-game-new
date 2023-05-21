@@ -123,15 +123,15 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 
 
-/* -------START THE GAME ------- */
-.the-game {
+/* ------- GAME SETTINGS --- ------- */
+.game-setting {
    padding:2% 8%;
 }
 
 
 
 /* ---- START NAV ------ -*/
-.the-game header {
+.game-setting header {
   padding:20px  0;
   display: flex;
   justify-content: space-between;
@@ -140,13 +140,13 @@ DATE: 10TH MAY, 2023 TILL DATE
 }
 
 
-.the-game header h1 {
+.game-setting header h1 {
   color: #233644;
   font-size: 30px;
 }
 
 
-.the-game header button {
+.game-setting header button {
   padding: 1rem 1.5rem;
   border-radius: 50px;
   border: none;
