@@ -76,38 +76,6 @@ This code represents a memory game implemented in JavaScript. The game requires 
 GETTING STARTED
 To use this code, you need to include it in an HTML file that also includes the necessary CSS and images. The code assumes the existence of the following elements:
 
-Elements with class names: "the-game", "starting-game", "game-details", "overlay", "info-container", "start-game", "choice", "icon", "choices", "the-grid-container", "the-grid", "row", "timer", "detail-box", "light-text", "active-color", "info-box".
-Images in the "images" directory: "car.png", "bug.png", "flask.png", "futbol.png", "lira-sign.png", "hand-spock.png", "moon.png", "anchor.png", "snowflake.png".
-
-CODE OVERVIEW
-
-VARIABLES
-sourceMarkup: Stores the markup of the HTML page's body.
-
-FUNCTIONS
-allFunctions(): Contains all the functionality of the game.
-checkActiveChoice(): Checks the active choices and starts the game.
-activeNonActive(): Adds event listeners to the clicked icons.
-handlingClickIcons(): Handles the click event on icons.
-handlingChoices(): Adds event listeners to the choices and handles the clicked choice.
-generateIcons(): Generates an array of objects representing icons.
-generateNums(): Generates an array of objects representing numbers.
-randomizeArray(arr): Shuffles the elements of an array.
-generateTheGame(): Generates the game grid based on the selected options.
-fixingIconsMarkup(array): Updates the icons' markup based on the array of objects.
-startTheGame(arr): Starts the game based on the selected choices.
-addNotActiveClass(arr): Adds "not-active" class to elements in the array.
-areEqual(dataId1, dataId2): Checks if two data IDs are equal.
-checkGameOver(): Checks if all icons have the "active" class and ends the game if true.
-setTimer(): Manages the game timer.
-manageGameDetails(players): Manages the game details based on the number of players.
-generateDetailBox(player): Generates the detail box for a player.
-handlingMoves(): Handles the moves of each player.
-activeFirstPlayer(): Activates the first player at the beginning of the game.
-activeNextPlayer(): Activates the next player if the icons don't match.
-manageOverlay(): Manages the game over overlay and displays the results.
-generateInfoBox(player): Generates the information box for a player.
-
 
 USAGE
 Include the JavaScript code in your HTML file.
