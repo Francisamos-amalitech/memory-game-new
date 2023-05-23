@@ -44,8 +44,7 @@ function allFunctions() {
     // select all the choices
     const allChoices = Array.from(document.querySelectorAll(".choice"));
     // loop over them and put them in a new array called active choices
-    activeChoices = allChoices
-      .filter((choice) => {
+    activeChoices = allChoices.filter((choice) => {
         return choice.classList.contains("active");
       })
       .map((ch) => {
@@ -429,9 +428,9 @@ function allFunctions() {
   }
 
   // generate the informtion box of the array depending on the player and his/her info
+
   function generateInfoBox(player) {
-    const playerMoves =
-      gameDetailsElement.children[player - 1].querySelector(
+    const playerMoves = gameDetailsElement.children[player - 1].querySelector(
         ".moves"
       ).textContent;
     const playerPairs =
@@ -494,6 +493,8 @@ function allFunctions() {
 // ---- RUN ALL OF IT FUNCTION
 allFunctions();
 
+
+
 // --- NEWGAME FUNCTIONS-------
 function setUpNewGame() {
   const newGame = document.querySelectorAll(".new-game");
@@ -507,4 +508,4 @@ function setUpNewGame() {
 }
 
 // call the setUpNewGame
-setUpNewGame()
+setUpNewGame();
