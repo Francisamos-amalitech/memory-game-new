@@ -65,7 +65,7 @@ function allFunctions() {
   let lockFlip = false;
   let isGameOver = false;
 
-  // function will add an event listener to all the clicked icons
+  // function will add an eventlistener to all the clicked icons
   function activeNonActive() {
     let icons = document.querySelectorAll(".icon");
     icons.forEach((icon) => {
@@ -87,13 +87,15 @@ function allFunctions() {
 
       // check if the active icons no equal to 2
       if (activeIcons !== 2) {
+
         // check if the icon doesn't have the class active
         if (!theIcon.classList.contains("active")) {
           theIcon.classList.add("active");
           theIcon.classList.remove("not-active");
           activeIcons++;
           if (activeIcons === 1) {
-            // make the ele1 = the icon, and push this [ele1] to the [arrayOfTwoClickedIcons]
+            
+            // make the element 1 = the icon, and push this [element1] to the [arrayOfTwoClickedIcons]
             element1 = theIcon;
             arrayOfTwoClickedIcons.push(element1);
           } else if (activeIcons === 2) {
