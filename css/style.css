@@ -100,7 +100,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 /* ------------START GAME BUTTON ----------- */
 .start-game button {
   width: 100%;
-  padding: 17px 5px;
+  padding:17px 5px;
   border-radius:50px;
   outline: none;
   border: none;
@@ -330,8 +330,6 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 
 
-
-
 button {
   cursor: pointer;
   border: none;
@@ -515,10 +513,6 @@ body.over .overlay .box .btn-container button {
       
   }
 }
-
-
-
-
 
 
 
