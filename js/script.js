@@ -14,6 +14,7 @@ function allFunctions() {
 
   //----- SELECTS TYPE OF GAME
   let theGridSize = 4;
+  let theGridSize2 = 8;
 
   let numberGameArray = [];
 
@@ -29,6 +30,7 @@ function allFunctions() {
     `<img src="images/moon.png">`,
     `<img src="images/anchor.png">`,
     `<img src="images/snowflake.png">`,
+    
   ];
 
 
@@ -249,7 +251,7 @@ function allFunctions() {
     });
   }
 
-  // excution
+  // execution
   handlingChoices();
   // startTheGame by the giving the array of choices
   function startTheGame(arr) {
@@ -272,7 +274,7 @@ function allFunctions() {
     }
   }
 
-  // pretty clear
+
   function addNotActiveClass(arr) {
     arr.forEach((ele) => {
       ele.classList.remove("active");
@@ -280,7 +282,7 @@ function allFunctions() {
     });
   }
 
-  // pretty clear also
+
   function areEqual(dataId1, dataId2) {
     if (dataId1 === dataId2) {
       return true;
@@ -299,6 +301,8 @@ function allFunctions() {
     }
     return isGameOver;
   }
+
+
 
   // ---- SETTING THE TIME
   const timer = document.querySelector(".timer");
@@ -429,7 +433,7 @@ function allFunctions() {
     }
   }
 
-  // generate the informtion box of the array depending on the player and his/her info
+  // generate the information box of the array depending on the player and his/her info
 
   function generateInfoBox(player) {
     const playerMoves = gameDetailsElement.children[player - 1].querySelector(
