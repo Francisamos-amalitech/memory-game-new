@@ -1,6 +1,8 @@
 
 
-// This sets the value of a constant called entireMarkup to be the HTML content of the body element of the current page
+// This sets the value of a constant called entireMarkup 
+//to be the HTML content of the body element of the current page
+
 const entireMarkup = document.body.innerHTML;
 
 
@@ -16,14 +18,14 @@ function allFunctions() {
 
 
 
-  //----- VARIABLES TO SELECT THE  TYPE OF GAME THIS WILL BE USED  LATER IN THE GAME
+  //----- VARIABLES TO SELECT THE  TYPE OF GAME THAT WILL BE USED LATER IN THE GAME
   let theGridSize = 4;
   let numberGameArray = [];
   let iconsGameArray = [];
 
 
 
-
+//These are the icons put in an array
   const iconsMarkupArray = [
     `<img src="images/car.png">`,
     `<img src="images/bug.png">`,
@@ -45,8 +47,11 @@ function allFunctions() {
   const startGame = document.querySelector(".start-game2");
 
 
-  // This function selects the Choice elements on the page and filters the elements to only include those that have the active class.
-  //It also maps over the remaining choices to get data-choice attribute from each one and create a new array of values called activeChoices
+  // This function selects the Choice elements on the page 
+  //and filters the elements to only include those that have the active class.
+  //It also maps over the remaining choices to get data-choice attribute 
+  //from each one and create a new array of values called activeChoices
+  
   function checkActiveChoice() {
     // select all the choices
     const allChoices = Array.from(document.querySelectorAll(".choice"));
