@@ -167,8 +167,9 @@ function allFunctions() {
     checkGameOver();
   };
 
-  // selects all elements with class choice that are the children of elements with class choices 
-  // and save  them in the allChoices variable
+  // selects all elements with class choice that are 
+  //the children of elements with class choices  and 
+  //save  them in the allChoices variable
   const allChoices = document.querySelectorAll(".choices .choice");
 
 
@@ -190,7 +191,9 @@ function allFunctions() {
       choice.addEventListener("click", function (e) {
       
         const theChoice = e.currentTarget;
-        // save all the choice's parent's children in a variable and turn it into an array [to take advantage of (forEach)]
+
+        // save all the choice's parent's children in a variable
+        // and turn it into an array [to take advantage of (forEach)]
         const allChidren = Array.from(theChoice.parentElement.children);
      
         if (!theChoice.classList.contains("active")) {
@@ -244,7 +247,8 @@ function allFunctions() {
 
 
   
-  // generate the number function that will return an array of objects
+  // generate the number function that will return
+  // an array of objects
   function generateNums() {
     numberGameArray = [];
     let gameSize = 8;
@@ -273,8 +277,8 @@ function allFunctions() {
 
 
 
-  // This shuffles the elements in the arr array using  a random sort function
-  //  and returns the shuffled array.
+  // This shuffles the elements in the arr array using  a 
+  // random sort function and returns the shuffled array.
   function randomizeArray(arr) {
     return arr.sort(function () {
       return Math.random() - 0.5;
@@ -375,8 +379,8 @@ function allFunctions() {
 
 
 
-// This takes an array of elements arr and adds the class not active to
-//each of them while removing two dataid values
+// This takes an array of elements arr and adds the class
+//  not active to each of them while removing two dataid values
   function addNotActiveClass(arr) {
     arr.forEach((element) => {
       element.classList.remove("active");
@@ -448,7 +452,11 @@ function allFunctions() {
 let theIntervalOfTime;
 
 
-// 
+// This takes an argument players which is a string indicating
+//how many players are  playing the game. It checks if the players
+// is equal to 1-player, the game details are updated to show the 
+//number of moves and the time taken to play the game.The same applies to 
+// the rest of the players
 
 function manageGameDetails(players) {
     if (players === "1-player") {
@@ -480,7 +488,9 @@ function manageGameDetails(players) {
 
 
 
-  // the function that will take care of the game details of there is more than one player playing
+  // the function that will take care of the game details of
+  // there is more than one player playing
+
   function generateDetailBox(player) {
     const detailBox = document.createElement("div");
     detailBox.classList.add("detail-box");
@@ -515,13 +525,14 @@ function manageGameDetails(players) {
     const firstPlayer = gameDetailsElement
       .querySelector(".moves")
       firstPlayer.parentElement.classList.add("active");
+      
   }
 
 
 
 
 
-  // active the next player if the icons doesn't match
+  // activate the next player if the icons doesn't match
   function activeNextPlayer() {
     if (activeChoices[1] !== "1-player") {
       // moves = 0;
@@ -539,7 +550,7 @@ function manageGameDetails(players) {
 
 
 
-  // manage the overlay
+  // manage the overlay that appears when the game is over
   function manageOverlay() {
     document.body.classList.add("over");
     overlayElement.classList.remove("d-none");
@@ -575,7 +586,8 @@ function manageGameDetails(players) {
 
 
 
-  // generate the information box of the array depending on the player and his/her info
+  // generate the information box for each player
+  // displaying their number of moves and pairs
 
   function generateInfoBox(player) {
     const playerMoves = gameDetailsElement.children[player - 1].querySelector(
@@ -605,7 +617,10 @@ function manageGameDetails(players) {
 
 
 
-  // add winner player if the game has been over and there's more than one player
+  //This determines the winner of the game
+  //and adds the active class to their information box
+  // showing it
+
   function addWinnerPlayer() {
     const infoPairs = Array.from(
       overlayElement.querySelectorAll(".info-pairs")
@@ -622,7 +637,8 @@ function manageGameDetails(players) {
 
 
 
-  // select the restart game buttons and loop over them to restart the game
+  // select the restart game buttons and loop over 
+  // them to restart the game
   const restartGame = document.querySelectorAll(".restart-game");
   restartGame.forEach((btn) => {
     btn.addEventListener("click", restartTheGame);
@@ -646,12 +662,10 @@ function manageGameDetails(players) {
 
 
 
-  // call set up new game function 
+  // call set up new game function  by reloading the game
+  //markup and calling the allFunctions() function.
   setUpNewGame()
 }
-
-
-
 
 // ---- RUN ALL OF IT FUNCTION
 allFunctions();
