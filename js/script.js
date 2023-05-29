@@ -385,6 +385,9 @@ function allFunctions() {
   }
 
 
+
+  // This take two dataid values and returns true if they
+  //are equal and false 
   function areEqual(dataId1, dataId2) {
     if (dataId1 === dataId2) {
       return true;
@@ -395,7 +398,8 @@ function allFunctions() {
 
 
 
-  // checking if all the icons has active class and depending on that the game is over
+  // checking if all the icons has active class and depending 
+  //on that the game is over
   function checkGameOver() {
     const allIcons = Array.from(document.querySelectorAll(".icon"));
     isGameOver = allIcons.every((icon) => icon.classList.contains("active"));
@@ -408,12 +412,19 @@ function allFunctions() {
 
 
 
+
   // ---- SETTING THE TIME
+  //This selects the HTML element with a class 
+  //of timer and sets two variables
+
   const timer = document.querySelector(".timer");
   let seconds = 0;
   let minutes = 0;
 
-  // the function that will manage the time
+
+
+  
+  // the function that will manage the time during the game
   function setTimer() {
     seconds++;
     if (seconds < 10) {
@@ -428,11 +439,18 @@ function allFunctions() {
   }
 
 
-  let theIntervalOfTime;
 
-  // managing the game details depending on the players that are playing
-  
-  function manageGameDetails(players) {
+
+// This variable stores the interval ID returned
+//by setInterval() which will run the setTimer()
+// every 1000 milliseconds
+
+let theIntervalOfTime;
+
+
+// 
+
+function manageGameDetails(players) {
     if (players === "1-player") {
       gameDetailsElement.classList.remove("d-none");
       gameDetailsElement.querySelector(".moves").textContent = "0";
