@@ -14,7 +14,7 @@ function allFunctions() {
 
   //----- SELECTS TYPE OF GAME
   let theGridSize = 4;
-  let theGridSize2 = 8;
+
 
   let numberGameArray = [];
 
@@ -210,12 +210,18 @@ function allFunctions() {
     return numberGameArray;
   }
 
+
+
+
   // shuffle the array for the game
   function randomizeArray(arr) {
     return arr.sort(function () {
       return Math.random() - 0.5;
     });
   }
+
+
+
 
   // generating the game markup
   function generateTheGame() {
@@ -242,6 +248,11 @@ function allFunctions() {
     activeNonActive();
   }
 
+
+
+
+
+
   // fixing the icons markup by passing the array of icons object and put [value and dataId] of every object inside the icon [innerhtml and dataset.id]
   function fixingIconsMarkup(array) {
     const allTheIcons = document.querySelectorAll(".icon");
@@ -251,8 +262,14 @@ function allFunctions() {
     });
   }
 
+
+
+
   // execution
   handlingChoices();
+
+
+
   // startTheGame by the giving the array of choices
   function startTheGame(arr) {
     theGameElement.classList.remove("d-none");
@@ -290,6 +307,10 @@ function allFunctions() {
       return false;
     }
   }
+
+
+
+
 
   // checking if all the icons has active class and depending on that the game is over
   function checkGameOver() {
@@ -355,6 +376,9 @@ function allFunctions() {
     }
   }
 
+
+
+
   // the function that will take care of the game details of there is more than one player playing
   function generateDetailBox(player) {
     const detailBox = document.createElement("div");
@@ -370,6 +394,10 @@ function allFunctions() {
     gameDetailsElement.appendChild(detailBox);
   }
 
+
+
+
+
   // handling the moves of every player
   function handlingMoves() {
     const activePlayer = document.querySelector(".detail-box.active");
@@ -378,12 +406,19 @@ function allFunctions() {
     activePlayer.querySelector(".moves").textContent = theMoves;
   }
 
+
+
+
   // active the first player in the first
   function activeFirstPlayer() {
     const firstPlayer = gameDetailsElement
       .querySelector(".moves")
       .parentElement.classList.add("active");
   }
+
+
+
+
 
   // active the next player if the icons doesn't match
   function activeNextPlayer() {
@@ -399,6 +434,9 @@ function allFunctions() {
       }
     }
   }
+
+
+
 
   // manage the overlay
   function manageOverlay() {
@@ -433,6 +471,9 @@ function allFunctions() {
     }
   }
 
+
+
+
   // generate the information box of the array depending on the player and his/her info
 
   function generateInfoBox(player) {
@@ -460,6 +501,9 @@ function allFunctions() {
     infoContainer.appendChild(infoBox);
   }
 
+
+
+
   // add winner player if the game has been over and there's more than one player
   function addWinnerPlayer() {
     const infoPairs = Array.from(
@@ -474,11 +518,17 @@ function allFunctions() {
     infoBoxes[newArray[0].index].classList.add("active");
   }
 
+
+
+
   // select the restart game buttons and loop over them and add an event listener to restart the game with the same active choices
   const restartGame = document.querySelectorAll(".restart-game");
   restartGame.forEach((btn) => {
     btn.addEventListener("click", restartTheGame);
   });
+
+
+
 
   // the function that will run when the user want to restart the game
   function restartTheGame() {
@@ -492,9 +542,15 @@ function allFunctions() {
     checkActiveChoice();
   }
 
+
+
+
   // call set up new game function 
   setUpNewGame()
 }
+
+
+
 
 // ---- RUN ALL OF IT FUNCTION
 allFunctions();
@@ -512,6 +568,9 @@ function setUpNewGame() {
     });
   });
 }
+
+
+
 
 // call the setUpNewGame
 setUpNewGame();

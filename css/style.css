@@ -364,6 +364,11 @@ button {
 }
 
 
+/* ----- END OF RESTART -------- */
+
+
+
+
 .new-game:hover {
   background-color: var(--hover-background);
 }
@@ -517,7 +522,7 @@ body.over .overlay .box .btn-container button {
 
 
 
-@media (max-width: 771px) {
+@media (max-width: 900px) {
   .start-game .box{
     width:75%;
   }
