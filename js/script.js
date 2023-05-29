@@ -1,7 +1,11 @@
 
-// This is the mark up of html page stored in a variable
+
+// This sets the value of a constant called entireMarkup to be the HTML content of the body element of the current page
 const entireMarkup = document.body.innerHTML;
 
+
+
+// This function includes some variable declarations and selector statements
 function allFunctions() {
   // SELECTORS
   const theGameElement = document.querySelector(".game-setting");
@@ -12,13 +16,13 @@ function allFunctions() {
 
 
 
-  //----- SELECTS TYPE OF GAME
+  //----- VARIABLES TO SELECT THE  TYPE OF GAME THIS WILL BE USED  LATER IN THE GAME
   let theGridSize = 4;
-
-
   let numberGameArray = [];
-
   let iconsGameArray = [];
+
+
+
 
   const iconsMarkupArray = [
     `<img src="images/car.png">`,
@@ -293,9 +297,9 @@ function allFunctions() {
 
 
   function addNotActiveClass(arr) {
-    arr.forEach((ele) => {
-      ele.classList.remove("active");
-      ele.classList.add("not-active");
+    arr.forEach((element) => {
+      element.classList.remove("active");
+      element.classList.add("not-active");
     });
   }
 
@@ -307,8 +311,6 @@ function allFunctions() {
       return false;
     }
   }
-
-
 
 
 
@@ -413,7 +415,7 @@ function allFunctions() {
   function activeFirstPlayer() {
     const firstPlayer = gameDetailsElement
       .querySelector(".moves")
-      .parentElement.classList.add("active");
+      firstPlayer.parentElement.classList.add("active");
   }
 
 
@@ -510,8 +512,8 @@ function allFunctions() {
       overlayElement.querySelectorAll(".info-pairs")
     );
     let newArray = infoPairs
-      .map((ele, index) => {
-        return { val: parseInt(ele.textContent), index: index };
+      .map((element, index) => {
+        return { val: parseInt(element.textContent), index: index };
       })
       .sort((a, b) => b.val - a.val);
     const infoBoxes = overlayElement.querySelectorAll(".info-box");
@@ -521,7 +523,7 @@ function allFunctions() {
 
 
 
-  // select the restart game buttons and loop over them and add an event listener to restart the game with the same active choices
+  // select the restart game buttons and loop over them to restart the game
   const restartGame = document.querySelectorAll(".restart-game");
   restartGame.forEach((btn) => {
     btn.addEventListener("click", restartTheGame);
