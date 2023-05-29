@@ -62,7 +62,7 @@ function allFunctions() {
       .map((ch) => {
         return ch.dataset.choice;
       });
-      // call start the game function and pass to it the active choices array 
+      // call startThGame function and pass to it the activeChoices array 
     startTheGame(activeChoices);
   }
 
@@ -100,10 +100,11 @@ function allFunctions() {
 
 
 
-
-
-  // This runs when the icons has been clicked then checks if the lockFlip  variable is false which means that the two icons are not already active
-  //it also checks whether the arrayOfTwoClickedIcons array already contains two elements then empties the array.
+  // This runs when the icons has been clicked then checks if the lockFlip  
+  //variable is false which means that the two icons are not already active
+  //it also checks whether the arrayOfTwoClickedIcons array already
+  // contains two elements then empties the array.
+  
   const handlingClickIcons = function (e) {
     const theIcon = e.currentTarget;
 
