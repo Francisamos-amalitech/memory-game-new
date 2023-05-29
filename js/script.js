@@ -45,7 +45,8 @@ function allFunctions() {
   const startGame = document.querySelector(".start-game2");
 
 
-  // function to check the active choices and start the game
+  // This function selects the Choice elements on the page and filters the elements to only include those that have the active class.
+  //It also maps over the remaining choices to get data-choice attribute from each one and create a new array of values called activeChoices
   function checkActiveChoice() {
     // select all the choices
     const allChoices = Array.from(document.querySelectorAll(".choice"));
@@ -60,16 +61,27 @@ function allFunctions() {
     startTheGame(activeChoices);
   }
 
-  // add an event listener to the start game button
+
+
+  // add an eventlistener to the start game button so when the button is clicked checkActiveChoice() is called
   startGame.addEventListener("click", checkActiveChoice);
 
-  // all the game needs
+  // activeIcons keeps track of how many icons are currently active(that have been clicked but not yet matched)
   let activeIcons = 0;
+
+  // The two elementss are used to store two icons that have been clicked
   let element1;
   let element2;
+
+  // is an array that holds the two clicked elements
   let arrayOfTwoClickedIcons = [];
+
+  //lockFlip is a boolean that is used to prevent clicking one or more than two icons at once
   let lockFlip = false;
+
+  // This is set to true when the game is over
   let isGameOver = false;
+
 
   // function will add an eventlistener to all the clicked icons
   function activeNonActive() {
@@ -79,7 +91,14 @@ function allFunctions() {
     });
   }
 
-  // This runs when the icons has been clicked
+
+
+
+
+
+
+  // This runs when the icons has been clicked then checks if the lockFlip  variable is false which means that the two icons are not already active
+  //it also checks whether the arrayOfTwoClickedIcons array already contains two elements then empties the array.
   const handlingClickIcons = function (e) {
     const theIcon = e.currentTarget;
 
@@ -91,7 +110,8 @@ function allFunctions() {
         arrayOfTwoClickedIcons = [];
       }
 
-      // check if the active icons no equal to 2
+      // check if the active icons no equal to 2 if they are the icons disabled and the number of pairs for the current player is incremented
+      //if they are not equal the icons are marked as not active after delay
       if (activeIcons !== 2) {
 
         // check if the icon doesn't have the class active
@@ -105,21 +125,29 @@ function allFunctions() {
             element1 = theIcon;
             arrayOfTwoClickedIcons.push(element1);
           } else if (activeIcons === 2) {
+
             // the same with the second clicked icon but i you have to make the [lockFlip] = true, and make activeIcons = 0;
             element2 = theIcon;
             arrayOfTwoClickedIcons.push(element2);
             lockFlip = true;
             activeIcons = 0;
+
+            // this increments the number of moves for the current player
             handlingMoves();
-            // check if the two clicked icons are equal
+
+            // This is a helper function that checks whether two icons have the same dataset ID ie whether they are a match
             if (!areEqual(element1.dataset.id, element2.dataset.id)) {
-              // if not
+
+              // Thus remove the active class from all the icons in the array parameter
               setTimeout(() => {
                 addNotActiveClass(arrayOfTwoClickedIcons);
                 lockFlip = false;
+
+                // This switches the active class to the next player in the game
                 activeNextPlayer();
               }, 1000);
             } else {
+
               // if so
               setTimeout(() => {
                 const activePlayer =
@@ -139,19 +167,32 @@ function allFunctions() {
     checkGameOver();
   };
 
-  // save all the choices in a variable
+  // selects all elements with class choice that are the children of elements with class choices 
+  // and save  them in the allChoices variable
   const allChoices = document.querySelectorAll(".choices .choice");
 
+
+
+
+
+
+
+
+  // This loops over all the choices and adds a click eventlistener
+// to each of them. When a choice is clicked, it checks if it doesn't have
+//the class  active. if not it removes the class active from all the choices
+// siblings and adds it to the clicked choice.
+
   function handlingChoices() {
-    // loop over all of the choices
+
     allChoices.forEach((choice) => {
-      // add an event listener for every choice
+
       choice.addEventListener("click", function (e) {
-        // save the clicked choice in a variable
+      
         const theChoice = e.currentTarget;
         // save all the choice's parent's children in a variable and turn it into an array [to take advantage of (forEach)]
         const allChidren = Array.from(theChoice.parentElement.children);
-        // check if the clicked choice doesn't have the class active
+     
         if (!theChoice.classList.contains("active")) {
           // if so, loop over all of the choice's parent's children and remove the class active from them
           allChidren.forEach((child) => {
@@ -164,7 +205,16 @@ function allFunctions() {
     });
   }
 
-  // generate the icons function that will return an array of objects
+
+
+
+
+
+
+
+  // This generates an array of objects that represent the icons to
+  // be used in the game. 
+
   function generateIcons() {
     iconsGameArray = [];
     let gameSize = 8;
@@ -188,6 +238,12 @@ function allFunctions() {
     return iconsGameArray;
   }
 
+
+
+
+
+
+  
   // generate the number function that will return an array of objects
   function generateNums() {
     numberGameArray = [];
