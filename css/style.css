@@ -6,14 +6,24 @@ DATE: 10TH MAY, 2023 TILL DATE
 */
 
 /* ----- CSS RESET ------ */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-body {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
+
+
+
+body {
+  overflow-y:hidden;
+}
+
+
+
+
+
 :root {
   --active-background: #304859;
   --non-active-background: #bcced9;
@@ -22,124 +32,10 @@ body {
   --info-background: #dfe7ec;
   --the-grid-size: 4;
 }
-.d-none {
-  display: none !important;
-}
-button {
-  cursor: pointer;
-  border: none;
-  transition: 0.3s;
-}
-.restart-game {
-  background-color: var(--yellow-background);
-  color: white;
-  margin-right: 5px;
-}
-.new-game {
-  background-color: var(--non-active-background);
-}
-.restart-game:hover {
-  background-color: #ec9201;
-}
-.new-game:hover {
-  background-color: var(--hover-background);
-}
-.light-text {
-  text-transform: uppercase;
-  color: #7191a5;
-  font-size: 1.5rem;
-}
-.active-color {
-  color: #304859;
-  letter-spacing: 1px;
-  font-size: 3rem;
-}
 
-body.over {
-  height: 100vh;
-  overflow: hidden;
-}
-body.over .overlay {
-  min-height: 100vh;
-  background-color: #5b69748c;
-  position: fixed;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-body.over .overlay .box {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 7px;
-  font-size: 2rem;
-}
-body.over .overlay .box > p {
-  margin: 1rem 0;
-}
-body.over .overlay .box .info-container .info-box {
-  display: flex;
-  background-color: #dfe7ec;
-  margin: 1rem 0;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  font-weight: bold;
-}
 
-body.over .overlay .box .info-container .info-box:not(.active) .info-name {
-  color: var(--hover-background);
-}
-body.over .overlay .box .info-container .info-box .info-result-container {
-  text-align: left;
-}
-body.over .overlay .box .info-container .info-box:not(.active) .info-result {
-  color: var(--active-background);
-}
-body.over .overlay .box .info-container .info-box.active {
-  background-color: var(--active-background);
-  color: white;
-}
-body.over .overlay .box .btn-container {
-  display: flex;
-  gap: 2%;
-  margin-top: 10px;
-}
-body.over .overlay .box .btn-container button {
-  flex: 1;
-  padding: 0.75rem;
-  border-radius: 50px;
-  outline: none;
-  font-size: 2rem;
-}
-/* start global media queries  */
-@media (max-width: 900px) {
-  html {
-    font-size: 12px;
-  }
-}
-@media (max-width: 630px) {
-  html {
-    font-size: 9px;
-  }
-}
-@media (max-width: 460px) {
-  html {
-    font-size: 7px;
-  }
-}
 
-/* end global media queries  */
+
 /* start the starting game  */
 
 .starting-game {
@@ -202,12 +98,7 @@ body.over .overlay .box .btn-container button {
 .starting-game button:hover {
   background-color: #da8600;
 }
-@media (max-width: 600px) {
-  .starting-game .box {
-    padding: 2em 2em;
-    font-size: 15px;
-  }
-}
+
 /* end the starting game  */
 /* start the game  */
 .the-game {
@@ -296,16 +187,7 @@ body.over .overlay .box .btn-container button {
 .the-grid .row .icon.not-active::before {
   animation: hiding 0.5s forwards;
 }
-@media (max-width: 500px) {
-  .the-grid {
-    min-height: 42vh;
-  }
-  .the-grid.grid-4 .row .icon {
-    width: 10rem;
-    height: 10rem;
-    font-size: 3.5rem;
-  }
-}
+
 
 @keyframes showing {
   0% {
@@ -331,6 +213,30 @@ body.over .overlay .box .btn-container button {
 
 /* end grid  */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* start game details  */
 .game-details {
   display: flex;
@@ -339,6 +245,9 @@ body.over .overlay .box .btn-container button {
   margin-bottom: 20px;
   padding: 0 2rem;
 }
+
+
+
 .game-details .detail-box {
   display: flex;
   /* flex-direction: column; */
@@ -352,18 +261,187 @@ body.over .overlay .box .btn-container button {
   position: relative;
   transition: 0.5s;
 }
+
+
+
+
+.d-none {
+  display: none !important;
+}
+
+
+
+button {
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+
+
+.restart-game {
+  background-color: var(--yellow-background);
+  color: white;
+  margin-right: 5px;
+}
+
+
+
+.new-game {
+  background-color: var(--non-active-background);
+}
+
+
+.restart-game:hover {
+  background-color: #ec9201;
+}
+
+
+
+.new-game:hover {
+  background-color: var(--hover-background);
+}
+
+
+
+.light-text {
+  text-transform: uppercase;
+  color: #7191a5;
+  font-size: 1.5rem;
+}
+
+
+
+.active-color {
+  color: #304859;
+  letter-spacing: 1px;
+  font-size: 3rem;
+}
+
+
+
+
+
+/* --- BODY SECTION STYLING------- */
+
+body.over {
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+
+body.over .overlay {
+  min-height: 100vh;
+  background-color: #5b69748c;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+
+
+body.over .overlay .box {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 2rem;
+}
+
+
+
+body.over .overlay .box > p {
+  margin: 1rem 0;
+}
+
+
+
+body.over .overlay .box .info-container .info-box {
+  display: flex;
+  background-color: #dfe7ec;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+
+
+
+body.over .overlay .box .info-container .info-box:not(.active) .info-name {
+  color: var(--hover-background);
+}
+body.over .overlay .box .info-container .info-box .info-result-container {
+  text-align: left;
+}
+body.over .overlay .box .info-container .info-box:not(.active) .info-result {
+  color: var(--active-background);
+}
+body.over .overlay .box .info-container .info-box.active {
+  background-color: var(--active-background);
+  color: white;
+}
+body.over .overlay .box .btn-container {
+  display: flex;
+  gap: 2%;
+  margin-top: 10px;
+}
+
+
+
+body.over .overlay .box .btn-container button {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 50px;
+  outline: none;
+  font-size: 2rem;
+}
+
+
+
+/* ---- END OF BODY SECTION  STYLING ------- */
+
+
+
+
+
+/* ---- GAME DETAILS STYLING ------- */
+
 .game-details .detail-box.active {
   background-color: var(--yellow-background);
 }
+
+
+
 .game-details .detail-box.active > p {
   color: white;
 }
+
+
 .game-details .detail-box p {
   padding: 1rem;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
 }
+
+
+
+
 .game-details .detail-box.active::before {
   content: "";
   position: absolute;
@@ -375,6 +453,76 @@ body.over .overlay .box .btn-container button {
   transform: translate(-50%, -50%);
   animation: move-up 0.5s forwards 0.2s;
 }
+
+
+@keyframes move-up {
+  100% {
+    top: -20%;
+    border-width: 30px;
+  }
+}
+
+
+
+
+
+.game-details .detail-box .moves-and-pairs {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+/* ---- END OF GAME DETAILS STYLING ------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ RESPONSIVENESS -------  */
+
+
+
+@media (max-width: 600px) {
+  .starting-game .box {
+    padding: 2em 2em;
+    font-size: 15px;
+  }
+
+
+  .the-grid {
+    min-height: 42vh;
+  }
+
+
+  .the-grid.grid-4 .row .icon {
+    width: 10rem;
+    height: 10rem;
+    font-size: 3.5rem;
+  }
+}
+
+
+
+/* ------TABLET VIEW ------- */
+
 @media (max-width: 771px) {
   .game-details .detail-box {
     flex-direction: column;
@@ -382,25 +530,9 @@ body.over .overlay .box .btn-container button {
     font-size: 1.5rem;
   }
 }
-@media (max-width: 390px) {
-  .the-game {
-    padding: 0 3em;
-  }
-}
-@keyframes move-up {
-  100% {
-    top: -20%;
-    border-width: 30px;
-  }
-}
-/* .game-details .detail-box .moves-and-pairs {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-} */
-/* end game details  */
 
-/* end the game  */
+
+
+
 
 

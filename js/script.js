@@ -65,20 +65,19 @@ function allFunctions() {
   function checkActiveChoice() {
 
     // select all the choices
-    const allChoices = Array.from(document.querySelectorAll(".choice"));
+    const allChocies = Array.from(document.querySelectorAll(".choice"));
 
     // loop over them and put them in a new array called active choices
-    const activeChoices = allChoices.filter((choice) => {
-        return choice.classList.contains("active");
-      })
-
-      .map((ch) => {
-        return ch.dataset.choice;
-      });
-      // call startThGame function and pass to it the activeChoices array 
-    startTheGame(activeChoices);
-  }
-
+    activeChoices = allChocies
+    .filter((choice) => {
+      return choice.classList.contains("active");
+    })
+    .map((ch) => {
+      return ch.dataset.choice;
+    });
+    // call start the game function and pass to it the active choices array 
+  startTheGame(activeChoices);
+}
 
 
   // add an eventlistener to the start game button so when the button is clicked checkActiveChoice() is called
