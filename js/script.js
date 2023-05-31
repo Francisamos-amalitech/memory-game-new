@@ -26,26 +26,18 @@ function allFunctions() {
 
 //These are the icons put in an array
   const iconsMarkupArray = [
-    `<img src="images/car.png">`,
-    `<img src="images/bug.png">`,
-    `<img src="images/flask.png">`,
-    `<img src="images/futbol.png">`,
-    `<img src="images/lira-sign.png">`,
-    `<img src="images/hand-spock.png">`,
-    `<img src="images/moon.png">`,
-    `<img src="images/anchor.png">`,
-    `<img src="images/snowflake.png">`,
-    `<img src="images/car.png">`,
-    `<img src="images/bug.png">`,
-    `<img src="images/flask.png">`,
-    `<img src="images/futbol.png">`,
-    `<img src="images/lira-sign.png">`,
-    `<img src="images/hand-spock.png">`,
-    `<img src="images/moon.png">`,
-    `<img src="images/anchor.png">`,
-    `<img src="images/snowflake.png">`,
-    
+    `<div class="icon-wrapper"><img src="images/car.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/bug.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/flask.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/futbol.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/lira-sign.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/hand-spock.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/moon.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/anchor.png"></div>`,
+    `<div class="icon-wrapper"><img src="images/snowflake.png"></div>`,
+
   ];
+
 
 
   // declare an array of active choices
@@ -280,6 +272,7 @@ function allFunctions() {
         dataId: i,
       };
       iconsGameArray.push(obj);
+     
     }
     return iconsGameArray;
   }
@@ -378,6 +371,7 @@ function allFunctions() {
     allTheIcons.forEach((icon, index) => {
       icon.innerHTML = array[index].value;
       icon.dataset.id = array[index].dataId;
+      icon.classList.add("icon-format");
     });
   }
 
@@ -396,7 +390,7 @@ function allFunctions() {
   //using either generateIcons() or generateNums(), shuffles the
   //elements using randomizeArray(), generates the markup using
   //generateTheGame(), and updates the icons markup using fixingIconsMarkup()
-  
+
   function startTheGame(arr) {
     theGameElement.classList.remove("d-none");
     startingGameElement.classList.add("d-none");
