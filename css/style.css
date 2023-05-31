@@ -21,9 +21,6 @@ body {
 }
 
 
-
-
-
 :root {
   --active-background: #304859;
   --non-active-background: #bcced9;
@@ -36,7 +33,7 @@ body {
 
 
 
-/* start the starting game  */
+/* -----START SCREEN STYLING ------  */
 
 .starting-game {
   min-height: 100vh;
@@ -46,22 +43,34 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+
 .starting-game h1 {
   color: white;
   margin-bottom: 20px;
 }
+
+
+
 .starting-game .box {
   background-color: white;
   padding: 2em 3em;
   border-radius: 10px;
   font-size: 20px;
   font-weight: 700;
-  width: 75%;
+  width: 40%;
 }
+
+
 
 .starting-game .box .choose {
   color: #7191af;
 }
+
+
+
+
+
 .starting-game .box .choices {
   display: flex;
   gap: 3%;
@@ -211,28 +220,7 @@ body {
   }
 }
 
-/* end grid  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* end grid 
 
 
 
@@ -491,17 +479,13 @@ body.over .overlay .box .btn-container button {
 
 
 
-
-
-
-
-
 /*------ RESPONSIVENESS -------  */
 
 
 
 @media (max-width: 600px) {
   .starting-game .box {
+    width:90%;
     padding: 2em 2em;
     font-size: 15px;
   }
