@@ -6,32 +6,143 @@ DATE: 10TH MAY, 2023 TILL DATE
 */
 
 /* ----- CSS RESET ------ */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
-
-
-
-
-/* ----VARIABLES------- */
-
 :root {
-  --sea-blue: #304859;
+  --active-background: #304859;
   --non-active-background: #bcced9;
   --hover-background: #6395b8;
   --yellow-background: #fda214;
   --info-background: #dfe7ec;
   --the-grid-size: 4;
 }
+.d-none {
+  display: none !important;
+}
+button {
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+.restart-game {
+  background-color: var(--yellow-background);
+  color: white;
+  margin-right: 5px;
+}
+.new-game {
+  background-color: var(--non-active-background);
+}
+.restart-game:hover {
+  background-color: #ec9201;
+}
+.new-game:hover {
+  background-color: var(--hover-background);
+}
+.light-text {
+  text-transform: uppercase;
+  color: #7191a5;
+  font-size: 1.5rem;
+}
+.active-color {
+  color: #304859;
+  letter-spacing: 1px;
+  font-size: 3rem;
+}
 
+body.over {
+  height: 100vh;
+  overflow: hidden;
+}
+body.over .overlay {
+  min-height: 100vh;
+  background-color: #5b69748c;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+body.over .overlay .box {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 2rem;
+}
+body.over .overlay .box > p {
+  margin: 1rem 0;
+}
+body.over .overlay .box .info-container .info-box {
+  display: flex;
+  background-color: #dfe7ec;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
 
-/* ------ GAME STARTS ---------  */
+body.over .overlay .box .info-container .info-box:not(.active) .info-name {
+  color: var(--hover-background);
+}
+body.over .overlay .box .info-container .info-box .info-result-container {
+  text-align: left;
+}
+body.over .overlay .box .info-container .info-box:not(.active) .info-result {
+  color: var(--active-background);
+}
+body.over .overlay .box .info-container .info-box.active {
+  background-color: var(--active-background);
+  color: white;
+}
+body.over .overlay .box .btn-container {
+  display: flex;
+  gap: 2%;
+  margin-top: 10px;
+}
+body.over .overlay .box .btn-container button {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 50px;
+  outline: none;
+  font-size: 2rem;
+}
+/* start global media queries  */
+@media (max-width: 900px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (max-width: 630px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media (max-width: 460px) {
+  html {
+    font-size: 7px;
+  }
+}
 
-.start-game {
+/* end global media queries  */
+/* start the starting game  */
+
+.starting-game {
   min-height: 100vh;
   background-color: #152938;
   display: flex;
@@ -39,41 +150,28 @@ DATE: 10TH MAY, 2023 TILL DATE
   align-items: center;
   justify-content: center;
 }
-
-
-
-.start-game h1 {
+.starting-game h1 {
   color: white;
-  margin-bottom:50px;
-  font-size:48px;
+  margin-bottom: 20px;
 }
-
-
-
-.start-game .box {
+.starting-game .box {
   background-color: white;
-  padding: 36px 40px;
+  padding: 2em 3em;
   border-radius: 10px;
   font-size: 20px;
   font-weight: 700;
-  width: 40%;
+  width: 75%;
 }
 
-.start-game .box .choose {
+.starting-game .box .choose {
   color: #7191af;
-  
 }
-
-
-.start-game .box .choices {
+.starting-game .box .choices {
   display: flex;
   gap: 3%;
-  margin:25px 0;
+  margin: 1rem 0;
 }
-
-
-
-.start-game .box .choices div {
+.starting-game .box .choices div {
   color: white;
   background-color: var(--non-active-background);
   flex: 1;
@@ -83,70 +181,52 @@ DATE: 10TH MAY, 2023 TILL DATE
   cursor: pointer;
   transition: 0.3s;
 }
-
-
-
-.start-game .box .choices div:hover {
+.starting-game .box .choices div:hover {
   background-color: #38688d;
 }
-
-
-
-.start-game .box .choices div.active {
-  background-color: var(--sea-blue);
+.starting-game .box .choices div.active {
+  background-color: var(--active-background);
 }
-
-
-/* ------------START GAME BUTTON ----------- */
-.start-game button {
+.starting-game button {
+  background-color: var(--yellow-background);
+  color: white;
   width: 100%;
-  padding:17px 5px;
-  border-radius:50px;
+  padding: 10px 5px;
+  border-radius: 15px;
   outline: none;
   border: none;
   margin: 18px 0 0;
   font-size: 20px;
-  font-weight:400;
   transition: 0.3s;
-  background-color: var(--yellow-background);
-  color: white;
 }
-
-
-.start-game button:hover {
+.starting-game button:hover {
   background-color: #da8600;
 }
-
-/* ----- END OF STARTING GAME -----  */
-
-
-
-
-
-/* ------- GAME SETTINGS --- ------- */
-.game-setting {
-   padding:2% 8%;
+@media (max-width: 600px) {
+  .starting-game .box {
+    padding: 2em 2em;
+    font-size: 15px;
+  }
 }
+/* end the starting game  */
+/* start the game  */
+.the-game {
+  padding: 0 5em;
+}
+/* start header  */
 
-
-
-/* ---- START NAV ------ -*/
-.game-setting header {
-  padding:20px  0;
+.the-game header {
+  padding: 2em 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
 }
-
-
-.game-setting header h1 {
+.the-game header h1 {
   color: #233644;
   font-size: 30px;
 }
-
-
-.game-setting header button {
+.the-game header button {
   padding: 1rem 1.5rem;
   border-radius: 50px;
   border: none;
@@ -157,37 +237,25 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 /* end header  */
 
-
-
-
-
 /* start grid  */
 .the-grid-container {
   display: flex;
   justify-content: center;
   margin-bottom: 7rem;
 }
-
-
 .the-grid {
-  min-height:42vh;
+  min-height: 50vh;
   display: grid;
   gap: 2%;
 }
-
-
 .the-grid.grid-4 .row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-
-
 .the-grid.grid-6 .row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 }
-
-
 .the-grid .row .icon {
   background-color: var(--yellow-background);
   color: white;
@@ -205,38 +273,39 @@ DATE: 10TH MAY, 2023 TILL DATE
   position: relative;
 }
 
-
 .the-grid .row .icon.active.disabled {
   cursor: default;
   background-color: #bcced9;
 }
-
 
 .the-grid .row .icon::before {
   content: "";
   position: absolute;
   width: 150%;
   height: 150%;
-  background-color: var(--sea-blue);
+  background-color: var(--active-background);
   border-radius: 50%;
   transition: 0.3s;
 }
-
-
 .the-grid .row .icon:hover::before {
   background-color: var(--hover-background);
 }
-
-
 .the-grid .row .icon.active::before {
   animation: showing 0.5s forwards;
 }
-
-
 .the-grid .row .icon.not-active::before {
   animation: hiding 0.5s forwards;
 }
-
+@media (max-width: 500px) {
+  .the-grid {
+    min-height: 42vh;
+  }
+  .the-grid.grid-4 .row .icon {
+    width: 10rem;
+    height: 10rem;
+    font-size: 3.5rem;
+  }
+}
 
 @keyframes showing {
   0% {
@@ -265,46 +334,36 @@ DATE: 10TH MAY, 2023 TILL DATE
 /* start game details  */
 .game-details {
   display: flex;
-  align-items:center;
-  justify-content:center;
-  gap:45px;
+  justify-content: space-between;
+  gap: 2.5%;
   margin-bottom: 20px;
-  
+  padding: 0 2rem;
 }
-
-
-
 .game-details .detail-box {
   display: flex;
-  padding:15px 30px;
+  /* flex-direction: column; */
+  padding: 1rem 0.75rem;
   background-color: var(--non-active-background);
+  flex: 1;
   justify-content: space-between;
   align-items: center;
-  font-size:40px;
+  font-size: 1.25rem;
   border-radius: 10px;
   position: relative;
   transition: 0.5s;
 }
-
-
 .game-details .detail-box.active {
   background-color: var(--yellow-background);
 }
-
 .game-details .detail-box.active > p {
   color: white;
 }
-
-
 .game-details .detail-box p {
-  padding:0 36px;
+  padding: 1rem;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
 }
-
-
-
 .game-details .detail-box.active::before {
   content: "";
   position: absolute;
@@ -316,223 +375,32 @@ DATE: 10TH MAY, 2023 TILL DATE
   transform: translate(-50%, -50%);
   animation: move-up 0.5s forwards 0.2s;
 }
-
-
-
+@media (max-width: 771px) {
+  .game-details .detail-box {
+    flex-direction: column;
+    border-radius: 5px;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 390px) {
+  .the-game {
+    padding: 0 3em;
+  }
+}
 @keyframes move-up {
   100% {
     top: -20%;
     border-width: 30px;
   }
 }
+/* .game-details .detail-box .moves-and-pairs {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+} */
+/* end game details  */
 
 /* end the game  */
-
-
-
-button {
-  cursor: pointer;
-  border: none;
-  transition: 0.3s;
-}
-
-
-
-/* ----- RESTART STYLING -------- */
-
-.restart-game {
-  color: white;
-  margin-right: 5px;
-    background-color: var(--yellow-background);
-}
-
-
-
-.d-none {
-  display: none !important;
-}
-
-
-.new-game {
-  background-color: var(--non-active-background);
-  color:#fff;
-}
-
-
-.restart-game:hover {
-  background-color: #ec9201;
-}
-
-
-/* ----- END OF RESTART -------- */
-
-
-
-
-.new-game:hover {
-  background-color: var(--hover-background);
-}
-
-
-
-.light-text {
-  text-transform: uppercase;
-  color: #7191a5;
-  font-size: 1.5rem;
-}
-
-
-.active-color {
-  color: #304859;
-  letter-spacing: 1px;
-  font-size: 3rem;
-}
-
-body.over {
-  height: 100vh;
-  overflow: hidden;
-}
-
-
-
-body.over .overlay {
-  min-height: 100vh;
-  background-color: #5b69748c;
-  position: fixed;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-
-body.over .overlay .box {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  width:45%;
-  padding:30px;
-  text-align: center;
-  border-radius: 7px;
-  font-size: 2rem;
-}
-
-
-body.over .overlay .box > p {
-  margin: 1rem 0;
-}
-
-
-
-body.over .overlay .box .info-container .info-box {
-  display: flex;
-  background-color: #dfe7ec;
-  margin: 1rem 0;
-  padding:5px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  font-weight: bold;
-}
-
-
-body.over .overlay .box .info-container .info-box:not(.active) .info-name {
-  color: var(--hover-background);
-}
-
-
-body.over .overlay .box .info-container .info-box .info-result-container {
-  text-align: left;
-}
-
-
-body.over .overlay .box .info-container .info-box:not(.active) .info-result {
-  color: var(--sea-blue);
-}
-
-
-body.over .overlay .box .info-container .info-box.active {
-  background-color: var(--sea-blue);
-  color: white;
-}
-
-
-body.over .overlay .box .btn-container {
-  display: flex;
-  gap: 2%;
-  margin-top: 10px;
-}
-
-
-body.over .overlay .box .btn-container button {
-  flex: 1;
-  padding: 0.75rem;
-  border-radius: 50px;
-  outline: none;
-  font-size: 2rem;
-}
-
-
-
-/* ----RESPONSIVENESS  */
-
-
-@media (max-width: 600px) {
-
-  .start-game .box .choose{
-    font-size:17px;
-  }
-
-
-
-  .start-game h1{
-    font-size:25px;
-  }
-
-  .the-grid {
-    min-height:42vh;
-  }
-
-  html {
-    font-size: 9px;
-  }
-
-  .the-grid.grid-4 .row .icon{
-    width:90%;
-    font-size:18px;
-    padding:20px;
-  }
-
-  .start-game .box{
-    width:90%;
-  }
-
-
-
-}
-
-
-
-
-@media (max-width: 900px) {
-  .start-game .box{
-    width:75%;
-  }
-
-
-
-  .game-details .detail-box {
-    flex-direction: column;
-    border-radius: 5px;
-    font-size: 1.5rem;
-  }
-
-
-}
 
 

@@ -10,8 +10,8 @@ const entireMarkup = document.body.innerHTML;
 // This function includes some variable declarations and selector statements
 function allFunctions() {
   // SELECTORS
-  const theGameElement = document.querySelector(".game-setting");
-  const startingGameElement = document.querySelector(".start-game");
+  const theGameElement = document.querySelector(".the-game");
+  const startingGameElement = document.querySelector(".starting-game");
   const gameDetailsElement = document.querySelector(".game-details");
   const overlayElement = document.querySelector(".overlay");
   const infoContainer = overlayElement.querySelector(".info-container");
@@ -24,9 +24,17 @@ function allFunctions() {
   let iconsGameArray = [];
 
 
-
 //These are the icons put in an array
   const iconsMarkupArray = [
+    `<img src="images/car.png">`,
+    `<img src="images/bug.png">`,
+    `<img src="images/flask.png">`,
+    `<img src="images/futbol.png">`,
+    `<img src="images/lira-sign.png">`,
+    `<img src="images/hand-spock.png">`,
+    `<img src="images/moon.png">`,
+    `<img src="images/anchor.png">`,
+    `<img src="images/snowflake.png">`,
     `<img src="images/car.png">`,
     `<img src="images/bug.png">`,
     `<img src="images/flask.png">`,
@@ -43,8 +51,10 @@ function allFunctions() {
   // declare an array of active choices
   let activeChoices;
 
+
+
   // select the start game button
-  const startGame = document.querySelector(".start-game2");
+  const startGame = document.querySelector(".start-game");
 
 
   // This function selects the Choice elements on the page 
@@ -53,12 +63,15 @@ function allFunctions() {
   //from each one and create a new array of values called activeChoices
   
   function checkActiveChoice() {
+
     // select all the choices
     const allChoices = Array.from(document.querySelectorAll(".choice"));
+
     // loop over them and put them in a new array called active choices
-    activeChoices = allChoices.filter((choice) => {
+    const activeChoices = allChoices.filter((choice) => {
         return choice.classList.contains("active");
       })
+
       .map((ch) => {
         return ch.dataset.choice;
       });
