@@ -18,7 +18,7 @@ function allFunctions() {
 
 
 
-  //----- VARIABLES TO SELECT THE  TYPE OF GAME THAT WILL BE USED LATER IN THE GAME
+  //----- VARIABLES TO SELECT THE TYPE OF GAME THAT WILL BE USED LATER IN THE GAME
   let theGridSize = 4;
   let numberGameArray = [];
   let iconsGameArray = [];
@@ -80,21 +80,36 @@ function allFunctions() {
 }
 
 
-  // add an eventlistener to the start game button so when the button is clicked checkActiveChoice() is called
+  // add an eventlistener to the start game button so when 
+  // the button is clicked checkActiveChoice() is called
+
   startGame.addEventListener("click", checkActiveChoice);
 
-  // activeIcons keeps track of how many icons are currently active(that have been clicked but not yet matched)
+
+
+  // activeIcons keeps track of how many icons are currently 
+  // active(that have been clicked but not yet matched)
   let activeIcons = 0;
+
+
 
   // The two elementss are used to store two icons that have been clicked
   let element1;
   let element2;
 
+
+
+
   // is an array that holds the two clicked elements
   let arrayOfTwoClickedIcons = [];
 
-  //lockFlip is a boolean that is used to prevent clicking one or more than two icons at once
+
+
+  //lockFlip is a boolean that is used to prevent clicking 
+  // one or more than two icons at once
   let lockFlip = false;
+
+
 
   // This is set to true when the game is over
   let isGameOver = false;
@@ -110,26 +125,34 @@ function allFunctions() {
 
 
 
-
-
   // This runs when the icons has been clicked then checks if the lockFlip  
   //variable is false which means that the two icons are not already active
   //it also checks whether the arrayOfTwoClickedIcons array already
   // contains two elements then empties the array.
+
   
   const handlingClickIcons = function (e) {
     const theIcon = e.currentTarget;
 
+
     // check if the lock flip is not false
     if (!lockFlip) {
 
+
+      
       // check if the the array of two clicked elements's length is equal to 2, if so empty the array
       if (arrayOfTwoClickedIcons.length === 2) {
         arrayOfTwoClickedIcons = [];
       }
 
-      // check if the active icons no equal to 2 if they are the icons disabled and the number of pairs for the current player is incremented
-      //if they are not equal the icons are marked as not active after delay
+
+      
+
+      // check if the active icons no equal to 2 if they are the 
+      //icons disabled and the number of pairs for the current player 
+      //is incrementedif they are not equal the icons are marked
+      // as not active after delay
+
       if (activeIcons !== 2) {
 
         // check if the icon doesn't have the class active
@@ -139,12 +162,14 @@ function allFunctions() {
           activeIcons++;
           if (activeIcons === 1) {
             
-            // make the element 1 = the icon, and push this [element1] to the [arrayOfTwoClickedIcons]
+            // make the element 1 = the icon, and push this [element1]
+            // to the [arrayOfTwoClickedIcons]
             element1 = theIcon;
             arrayOfTwoClickedIcons.push(element1);
           } else if (activeIcons === 2) {
 
-            // the same with the second clicked icon but i you have to make the [lockFlip] = true, and make activeIcons = 0;
+            // the same with the second clicked icon but i you have to
+            //  make the [lockFlip] = true, and make activeIcons = 0;
             element2 = theIcon;
             arrayOfTwoClickedIcons.push(element2);
             lockFlip = true;
@@ -153,7 +178,8 @@ function allFunctions() {
             // this increments the number of moves for the current player
             handlingMoves();
 
-            // This is a helper function that checks whether two icons have the same dataset ID ie whether they are a match
+            // This is a helper function that checks whether two icons 
+            // have the same dataset ID ie whether they are a match
             if (!areEqual(element1.dataset.id, element2.dataset.id)) {
 
               // Thus remove the active class from all the icons in the array parameter
@@ -215,7 +241,8 @@ function allFunctions() {
         const allChidren = Array.from(theChoice.parentElement.children);
      
         if (!theChoice.classList.contains("active")) {
-          // if so, loop over all of the choice's parent's children and remove the class active from them
+          // if so, loop over all of the choice's parent's children
+          //  and remove the class active from them
           allChidren.forEach((child) => {
             child.classList.remove("active");
           });
@@ -225,11 +252,6 @@ function allFunctions() {
       });
     });
   }
-
-
-
-
-
 
 
 
@@ -374,6 +396,7 @@ function allFunctions() {
   //using either generateIcons() or generateNums(), shuffles the
   //elements using randomizeArray(), generates the markup using
   //generateTheGame(), and updates the icons markup using fixingIconsMarkup()
+  
   function startTheGame(arr) {
     theGameElement.classList.remove("d-none");
     startingGameElement.classList.add("d-none");

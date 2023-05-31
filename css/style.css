@@ -16,10 +16,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 
 
 
-body {
-  overflow-y:hidden;
-}
-
+/* --------CSS VARIABLES ---------- */
 
 :root {
   --active-background: #304859;
@@ -33,225 +30,11 @@ body {
 
 
 
-/* -----START SCREEN STYLING ------  */
-
-.starting-game {
-  min-height: 100vh;
-  background-color: #152938;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.starting-game h1 {
-  color: white;
-  margin-bottom: 20px;
-}
-
-
-
-.starting-game .box {
-  background-color: white;
-  padding: 2em 3em;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: 700;
-  width: 40%;
-}
-
-
-
-.starting-game .box .choose {
-  color: #7191af;
-}
 
 
 
 
-
-.starting-game .box .choices {
-  display: flex;
-  gap: 3%;
-  margin: 1rem 0;
-}
-.starting-game .box .choices div {
-  color: white;
-  background-color: var(--non-active-background);
-  flex: 1;
-  text-align: center;
-  border-radius: 25px;
-  padding: 10px 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.starting-game .box .choices div:hover {
-  background-color: #38688d;
-}
-.starting-game .box .choices div.active {
-  background-color: var(--active-background);
-}
-.starting-game button {
-  background-color: var(--yellow-background);
-  color: white;
-  width: 100%;
-  padding: 10px 5px;
-  border-radius: 15px;
-  outline: none;
-  border: none;
-  margin: 18px 0 0;
-  font-size: 20px;
-  transition: 0.3s;
-}
-.starting-game button:hover {
-  background-color: #da8600;
-}
-
-/* end the starting game  */
-/* start the game  */
-.the-game {
-  padding: 0 5em;
-}
-/* start header  */
-
-.the-game header {
-  padding: 2em 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-.the-game header h1 {
-  color: #233644;
-  font-size: 30px;
-}
-.the-game header button {
-  padding: 1rem 1.5rem;
-  border-radius: 50px;
-  border: none;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-/* end header  */
-
-/* start grid  */
-.the-grid-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 7rem;
-}
-.the-grid {
-  min-height: 50vh;
-  display: grid;
-  gap: 2%;
-}
-.the-grid.grid-4 .row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.the-grid.grid-6 .row {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-.the-grid .row .icon {
-  background-color: var(--yellow-background);
-  color: white;
-  width: 7rem;
-  height: 7rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0.5rem;
-  font-size: 2.5rem;
-  cursor: pointer;
-  overflow: hidden;
-  transition: 0.3s;
-  position: relative;
-}
-
-.the-grid .row .icon.active.disabled {
-  cursor: default;
-  background-color: #bcced9;
-}
-
-.the-grid .row .icon::before {
-  content: "";
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  background-color: var(--active-background);
-  border-radius: 50%;
-  transition: 0.3s;
-}
-.the-grid .row .icon:hover::before {
-  background-color: var(--hover-background);
-}
-.the-grid .row .icon.active::before {
-  animation: showing 0.5s forwards;
-}
-.the-grid .row .icon.not-active::before {
-  animation: hiding 0.5s forwards;
-}
-
-
-@keyframes showing {
-  0% {
-    width: 150%;
-    height: 150%;
-  }
-  100% {
-    width: 0%;
-    height: 0%;
-  }
-}
-
-@keyframes hiding {
-  0% {
-    width: 0%;
-    height: 0%;
-  }
-  100% {
-    width: 150%;
-    height: 150%;
-  }
-}
-
-/* end grid 
-
-
-
-
-/* start game details  */
-.game-details {
-  display: flex;
-  justify-content: space-between;
-  gap: 2.5%;
-  margin-bottom: 20px;
-  padding: 0 2rem;
-}
-
-
-
-.game-details .detail-box {
-  display: flex;
-  /* flex-direction: column; */
-  padding: 1rem 0.75rem;
-  background-color: var(--non-active-background);
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.25rem;
-  border-radius: 10px;
-  position: relative;
-  transition: 0.5s;
-}
-
-
-
+/* ----- NAV STYLING -------- */
 
 .d-none {
   display: none !important;
@@ -277,7 +60,9 @@ button {
 
 .new-game {
   background-color: var(--non-active-background);
+  color:#fff;
 }
+
 
 
 .restart-game:hover {
@@ -289,6 +74,51 @@ button {
 .new-game:hover {
   background-color: var(--hover-background);
 }
+
+
+
+.the-game {
+  padding: 0 5em;
+}
+
+/* ------HEADER STYLING -------*/
+
+.the-game header {
+  padding: 2em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+.the-game header h1 {
+  color: #233644;
+  font-size: 30px;
+}
+
+
+
+.the-game header button {
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* ----- END OF NAV STYLING -------- */
+
+
+
+
+
+
+/*-- ---- TIME AND MOVE STYLING-----  --*/
 
 
 
@@ -306,17 +136,15 @@ button {
   font-size: 3rem;
 }
 
+/*-- ---- END OF TIME AND MOVE STYLING-----  --*/
 
 
 
-
-/* --- BODY SECTION STYLING------- */
 
 body.over {
   height: 100vh;
   overflow: hidden;
 }
-
 
 
 
@@ -369,20 +197,30 @@ body.over .overlay .box .info-container .info-box {
 
 
 
-
 body.over .overlay .box .info-container .info-box:not(.active) .info-name {
   color: var(--hover-background);
 }
+
+
+
 body.over .overlay .box .info-container .info-box .info-result-container {
   text-align: left;
 }
+
+
 body.over .overlay .box .info-container .info-box:not(.active) .info-result {
   color: var(--active-background);
 }
+
+
+
 body.over .overlay .box .info-container .info-box.active {
   background-color: var(--active-background);
   color: white;
 }
+
+
+
 body.over .overlay .box .btn-container {
   display: flex;
   gap: 2%;
@@ -401,13 +239,257 @@ body.over .overlay .box .btn-container button {
 
 
 
-/* ---- END OF BODY SECTION  STYLING ------- */
 
 
 
 
 
-/* ---- GAME DETAILS STYLING ------- */
+/* -------- START SCREEN STYLING -----------*/
+
+.starting-game {
+  min-height: 100vh;
+  background-color: #152938;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.starting-game h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+
+
+.starting-game .box {
+  background-color: white;
+  padding: 2em 3em;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  width:40%;
+}
+
+
+
+.starting-game .box .choose {
+  color: #7191af;
+}
+
+
+
+.starting-game .box .choices {
+  display: flex;
+  gap: 3%;
+  margin: 1rem 0;
+}
+
+
+
+.starting-game .box .choices div {
+  color: white;
+  background-color: var(--non-active-background);
+  flex: 1;
+  text-align: center;
+  border-radius: 25px;
+  padding: 10px 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+.starting-game .box .choices div:hover {
+  background-color: #38688d;
+}
+
+
+
+.starting-game .box .choices div.active {
+  background-color: var(--active-background);
+}
+
+
+
+.starting-game button {
+  background-color: var(--yellow-background);
+  color: white;
+  width: 100%;
+  padding: 10px 5px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  margin: 18px 0 0;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+
+.starting-game button:hover {
+  background-color: #da8600;
+}
+
+
+
+/* -------- END OF START SCREEN STYLING -----------*/
+
+
+
+
+
+
+
+
+/* ------CARD STYLING----- */
+
+.the-grid-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 7rem;
+}
+
+
+
+
+.the-grid {
+  min-height: 50vh;
+  display: grid;
+  gap: 2%;
+}
+
+
+
+.the-grid.grid-4 .row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+
+.the-grid.grid-6 .row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+
+
+.the-grid .row .icon {
+  background-color: var(--yellow-background);
+  color: white;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+  position: relative;
+}
+
+
+
+
+.the-grid .row .icon.active.disabled {
+  cursor: default;
+  background-color: #bcced9;
+}
+
+
+
+
+.the-grid .row .icon::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background-color: var(--active-background);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+
+
+
+.the-grid .row .icon:hover::before {
+  background-color: var(--hover-background);
+}
+
+
+
+.the-grid .row .icon.active::before {
+  animation: showing 0.5s forwards;
+}
+
+
+
+.the-grid .row .icon.not-active::before {
+  animation: hiding 0.5s forwards;
+}
+
+
+@keyframes showing {
+  0% {
+    width: 150%;
+    height: 150%;
+  }
+  100% {
+    width: 0%;
+    height: 0%;
+  }
+}
+
+@keyframes hiding {
+  0% {
+    width: 0%;
+    height: 0%;
+  }
+  100% {
+    width: 150%;
+    height: 150%;
+  }
+}
+
+/* ------END OF CARD STYLING----- */
+
+
+
+
+
+
+
+/* ----- TIME AND MOVE STYLING --------- */
+
+.game-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 2.5%;
+  margin-bottom: 20px;
+  padding: 0 2rem;
+}
+
+
+
+.game-details .detail-box {
+  display: flex;
+  padding: 1rem 0.75rem;
+  background-color: var(--non-active-background);
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+  border-radius: 10px;
+  position: relative;
+  transition: 0.5s;
+}
+
+
 
 .game-details .detail-box.active {
   background-color: var(--yellow-background);
@@ -420,13 +502,13 @@ body.over .overlay .box .btn-container button {
 }
 
 
+
 .game-details .detail-box p {
   padding: 1rem;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
 }
-
 
 
 
@@ -443,6 +525,7 @@ body.over .overlay .box .btn-container button {
 }
 
 
+
 @keyframes move-up {
   100% {
     top: -20%;
@@ -450,20 +533,7 @@ body.over .overlay .box .btn-container button {
   }
 }
 
-
-
-
-
-.game-details .detail-box .moves-and-pairs {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-}
-
-
-
-/* ---- END OF GAME DETAILS STYLING ------- */
+/* ----- END OF TIME AND MOVE STYLING --------- */
 
 
 
@@ -471,23 +541,18 @@ body.over .overlay .box .btn-container button {
 
 
 
-
-
-
-
-
-
-
-
-/*------ RESPONSIVENESS -------  */
-
-
+/* ------ RESPONSIVENESS -------- */
 
 @media (max-width: 600px) {
   .starting-game .box {
-    width:90%;
     padding: 2em 2em;
     font-size: 15px;
+    width:95%;
+  }
+
+
+  html {
+    font-size: 9px;
   }
 
 
@@ -496,16 +561,14 @@ body.over .overlay .box .btn-container button {
   }
 
 
-  .the-grid.grid-4 .row .icon {
-    width: 10rem;
-    height: 10rem;
-    font-size: 3.5rem;
-  }
+
+
+
+
+
 }
 
 
-
-/* ------TABLET VIEW ------- */
 
 @media (max-width: 771px) {
   .game-details .detail-box {
@@ -518,5 +581,31 @@ body.over .overlay .box .btn-container button {
 
 
 
+@media (max-width: 390px) {
+  .the-game {
+    padding: 0 3em;
+  }
+}
 
 
+@media (max-width: 900px) {
+  html {
+    font-size: 12px;
+  }
+
+  .starting-game .box {
+    width:75%;
+  }
+
+
+  .starting-game h1{
+    font-size:40px;
+    margin-bottom:50px;
+  }
+}
+
+@media (max-width: 460px) {
+  html {
+    font-size: 7px;
+  }
+}
