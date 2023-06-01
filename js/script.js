@@ -1,5 +1,4 @@
 
-
 // This sets the value of a constant called entireMarkup 
 //to be the HTML content of the body element of the current page
 
