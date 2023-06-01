@@ -28,11 +28,7 @@ DATE: 10TH MAY, 2023 TILL DATE
 }
 
 
-body{
-  width:100%;
-  height:100vh;
-  
-}
+
 
 
 /* ----- NAV STYLING -------- */
@@ -142,7 +138,7 @@ button {
 /*-- ---- END OF TIME AND MOVE STYLING-----  --*/
 
 
-
+/* -----MULTIPLAYER STYLING ------- */
 
 body.over {
   height: 100vh;
@@ -187,13 +183,12 @@ body.over .overlay .box > p {
 body.over .overlay .box .info-container .info-box {
   display: flex;
   background-color: #dfe7ec;
-  margin: 1rem 0;
-  padding: 1rem 2rem;
-  display: flex;
+  margin:1rem 0;
+  padding:5px 10px;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-transform: capitalize;
   font-weight: bold;
 }
@@ -240,6 +235,7 @@ body.over .overlay .box .btn-container button {
   font-size: 2rem;
 }
 
+/* -----END OF MULTIPLAYER STYLING ------- */
 
 
 
@@ -560,6 +556,10 @@ body.over .overlay .box .btn-container button {
   }
 
 
+
+
+
+
   html {
     font-size: 9px;
   }
@@ -569,9 +569,29 @@ body.over .overlay .box .btn-container button {
     min-height: 42vh;
   }
 
-  .game-details .detail-box{
-     width:100%;
+ 
+
+  .game-details{
+    margin-top:40px;
   }
+  
+  
+  
+  .game-details .detail-box {
+    margin:auto 10px;   
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -595,6 +615,12 @@ body.over .overlay .box .btn-container button {
   height: 7rem;
   
 }
+
+
+
+
+
+
 
 
 }
