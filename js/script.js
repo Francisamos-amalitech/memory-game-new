@@ -126,6 +126,37 @@ function allFunctions() {
   }
 
 
+// This function switches the active class to the next player in the game
+  function activeNextPlayer() {
+    const activePlayer = document.querySelector(".detail-box.active");
+    activePlayer.classList.remove("active");
+    if (activePlayer.nextElementSibling) {
+      activePlayer.nextElementSibling.classList.add("active");
+    } else {
+      document.querySelector(".detail-box").classList.add("active");
+    }
+  }
+  
+
+
+  // This function checks if any player has won the game
+function checkWin() {
+  const detailBoxes = document.querySelectorAll(".detail-box");
+  for (const detailBox of detailBoxes) {
+    const icons = detailBox.querySelectorAll(".icon");
+    if (icons.length === 3) {
+      const dataIds = Array.from(icons).map((icon) => icon.dataset.id);
+      const uniqueIds = new Set(dataIds);
+      if (uniqueIds.size === 1) {
+        const winner = detailBox.dataset.player;
+        return winner;
+      }
+    }
+  }
+  return null;
+}
+  
+
 
   // This runs when the icons has been clicked then checks if the lockFlip  
   //variable is false which means that the two icons are not already active
@@ -170,12 +201,14 @@ function allFunctions() {
             arrayOfTwoClickedIcons.push(element1);
           } else if (activeIcons === 2) {
 
+
             // the same with the second clicked icon but i you have to
             //  make the [lockFlip] = true, and make activeIcons = 0;
             element2 = theIcon;
             arrayOfTwoClickedIcons.push(element2);
             lockFlip = true;
             activeIcons = 0;
+            
 
             // this increments the number of moves for the current player
             handlingMoves();
@@ -194,6 +227,13 @@ function allFunctions() {
               }, 1000);
             } else {
 
+              const winner = checkWin(); // Check if any player has won
+              if (winner) {
+                alert(`Player ${winner} has won the game!`); // Display the winner in an alert message
+              } 
+              else {
+                activeNextPlayer();
+              }
               // if so
               setTimeout(() => {
                 const activePlayer =
@@ -474,6 +514,7 @@ function allFunctions() {
 
   
   // the function that will manage the time during the game
+
   function setTimer() {
     seconds++;
     if (seconds < 10) {
@@ -490,6 +531,8 @@ function allFunctions() {
 
 
 
+
+
 // This variable stores the interval ID returned
 //by setInterval() which will run the setTimer()
 // every 1000 milliseconds
@@ -498,8 +541,8 @@ let theIntervalOfTime;
 
 
 // This takes an argument players which is a string indicating
-//how many players are  playing the game. It checks if the players
-// is equal to 1-player, the game details are updated to show the 
+//how many players are playing the game. It checks if the players
+//are equal to 1-player, the game details are updated to show the 
 //number of moves and the time taken to play the game.The same applies to 
 // the rest of the players
 
@@ -607,6 +650,7 @@ function manageGameDetails(players) {
       ).textContent = `${
         document.querySelector(".detail-box .moves").textContent
       } Moves`;
+      
     } else if (activeChoices[1] === "2-players") {
       infoContainer.innerHTML = "";
       for (let i = 1; i <= 2; i++) {
