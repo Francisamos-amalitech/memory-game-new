@@ -470,25 +470,25 @@ function allFunctions() {
       clearInterval(theIntervalOfTime);
       manageOverlay();
     }
-    const totalPairs = theGridSize === 4 ? 8 : 18;
-    const players = document.querySelectorAll(".detail-box");
-    let maxPairs = 0;
-    let winner = null;
+    // const totalPairs = theGridSize === 4 ? 8 : 18;
+    // const players = document.querySelectorAll(".detail-box");
+    // let maxPairs = 0;
+    // let winner = null;
   
-    players.forEach((player) => {
-      const pairs = parseInt(player.querySelector(".moves").dataset.pairs);
-      if (pairs > maxPairs) {
-        maxPairs = pairs;
-        winner = player.querySelector(".name").textContent;
-      }
-    });
+    // players.forEach((player) => {
+    //   const pairs = parseInt(player.querySelector(".moves").dataset.pairs);
+    //   if (pairs > maxPairs) {
+    //     maxPairs = pairs;
+    //     winner = player.querySelector(".name").textContent;
+    //   }
+    // });
   
-    if (maxPairs === totalPairs) {
-      isGameOver = true;
-      lockFlip = true;
-      theMessage.textContent = `${winner} wins!`;
-      overlayElement.classList.remove("d-none");
-    }
+    // if (maxPairs === totalPairs) {
+    //   isGameOver = true;
+    //   lockFlip = true;
+    //   theMessage.textContent = `${winner} wins!`;
+    //   overlayElement.classList.remove("d-none");
+    // }
     return isGameOver;
   }
 
