@@ -14,6 +14,7 @@ function allFunctions() {
   const gameDetailsElement = document.querySelector(".game-details");
   const overlayElement = document.querySelector(".overlay");
   const infoContainer = overlayElement.querySelector(".info-container");
+  const theMessage  = document.querySelector(".the-message");
 
 
 
@@ -139,23 +140,6 @@ function allFunctions() {
   
 
 
-  // This function checks if any player has won the game
-function checkWin() {
-  const detailBoxes = document.querySelectorAll(".detail-box");
-  for (const detailBox of detailBoxes) {
-    const icons = detailBox.querySelectorAll(".icon");
-    if (icons.length === 3) {
-      const dataIds = Array.from(icons).map((icon) => icon.dataset.id);
-      const uniqueIds = new Set(dataIds);
-      if (uniqueIds.size === 1) {
-        const winner = detailBox.dataset.player;
-        return winner;
-      }
-    }
-  }
-  return null;
-}
-  
 
 
   // This runs when the icons has been clicked then checks if the lockFlip  
@@ -208,7 +192,7 @@ function checkWin() {
             arrayOfTwoClickedIcons.push(element2);
             lockFlip = true;
             activeIcons = 0;
-            
+
 
             // this increments the number of moves for the current player
             handlingMoves();
@@ -227,14 +211,6 @@ function checkWin() {
               }, 1000);
             } else {
 
-              const winner = checkWin(); // Check if any player has won
-              if (winner) {
-                alert(`Player ${winner} has won the game!`); // Display the winner in an alert message
-              } 
-              else {
-                activeNextPlayer();
-              }
-              // if so
               setTimeout(() => {
                 const activePlayer =
                   document.querySelector(".detail-box.active");
@@ -253,15 +229,13 @@ function checkWin() {
     checkGameOver();
   };
 
+
+
+
   // selects all elements with class choice that are 
   //the children of elements with class choices  and 
   //save  them in the allChoices variable
   const allChoices = document.querySelectorAll(".choices .choice");
-
-
-
-
-
 
 
 
@@ -496,8 +470,29 @@ function checkWin() {
       clearInterval(theIntervalOfTime);
       manageOverlay();
     }
+    const totalPairs = theGridSize === 4 ? 8 : 18;
+    const players = document.querySelectorAll(".detail-box");
+    let maxPairs = 0;
+    let winner = null;
+  
+    players.forEach((player) => {
+      const pairs = parseInt(player.querySelector(".moves").dataset.pairs);
+      if (pairs > maxPairs) {
+        maxPairs = pairs;
+        winner = player.querySelector(".name").textContent;
+      }
+    });
+  
+    if (maxPairs === totalPairs) {
+      isGameOver = true;
+      lockFlip = true;
+      theMessage.textContent = `${winner} wins!`;
+      overlayElement.classList.remove("d-none");
+    }
     return isGameOver;
   }
+
+
 
 
 
@@ -551,26 +546,32 @@ function manageGameDetails(players) {
       gameDetailsElement.classList.remove("d-none");
       gameDetailsElement.querySelector(".moves").textContent = "0";
       gameDetailsElement.querySelector(".moves").dataset.pairs = "0";
-
+ 
       theIntervalOfTime = setInterval(() => {
         setTimer();
       }, 1000);
     } else if (players === "2-players") {
       gameDetailsElement.innerHTML = "";
+    
       for (let i = 1; i <= 2; i++) {
         generateDetailBox(i);
       }
     } else if (players === "3-players") {
       gameDetailsElement.innerHTML = "";
+     
       for (let i = 1; i <= 3; i++) {
         generateDetailBox(i);
       }
     } else if (players === "4-players") {
       gameDetailsElement.innerHTML = "";
+ 
       for (let i = 1; i <= 4; i++) {
         generateDetailBox(i);
       }
+   
     }
+  
+    
   }
 
 
@@ -642,49 +643,43 @@ function manageGameDetails(players) {
   function manageOverlay() {
     document.body.classList.add("over");
     overlayElement.classList.remove("d-none");
+  
+    infoContainer.innerHTML = "";
+  
     if (activeChoices[1] === "1-player") {
-      overlayElement.querySelector(".time-result").textContent =
-        timer.textContent;
-      overlayElement.querySelector(
-        ".info-result.moves-result"
-      ).textContent = `${
-        document.querySelector(".detail-box .moves").textContent
-      } Moves`;
-      
-    } else if (activeChoices[1] === "2-players") {
-      infoContainer.innerHTML = "";
-      for (let i = 1; i <= 2; i++) {
-        generateInfoBox(i);
-      }
+      overlayElement.querySelector(".time-result").textContent = timer.textContent;
+      overlayElement.querySelector(".info-result.moves-result").textContent =
+        `${document.querySelector(".detail-box .moves").textContent} Moves`;
+      theMessage.innerHTML = "Player 1 wins!";
+      generateInfoBox(1);
       addWinnerPlayer();
-    } else if (activeChoices[1] === "3-players") {
-      infoContainer.innerHTML = "";
-      for (let i = 1; i <= 3; i++) {
-        generateInfoBox(i);
+    } else {
+      let winnerMessage = "";
+      if (activeChoices[1] === "2-players") {
+        winnerMessage = "Player 2 wins!";
+      } else if (activeChoices[1] === "3-players") {
+        winnerMessage = "Player 3 wins!";
+      } else if (activeChoices[1] === "4-players") {
+        winnerMessage = "Player 4 wins!";
       }
-      addWinnerPlayer();
-    } else if (activeChoices[1] === "4-players") {
-      infoContainer.innerHTML = "";
-      for (let i = 1; i <= 4; i++) {
+      theMessage.innerHTML = winnerMessage;
+      for (let i = 1; i <= parseInt(activeChoices[1][0]); i++) {
         generateInfoBox(i);
       }
       addWinnerPlayer();
     }
   }
-
-
+  
 
 
   // generate the information box for each player
   // displaying their number of moves and pairs
 
   function generateInfoBox(player) {
-    const playerMoves = gameDetailsElement.children[player - 1].querySelector(
-        ".moves"
-      ).textContent;
+    const playerMoves = gameDetailsElement.children[player - 1].querySelector(".moves")
+      .textContent;
     const playerPairs =
-      gameDetailsElement.children[player - 1].querySelector(".moves").dataset
-        .pairs;
+      gameDetailsElement.children[player - 1].querySelector(".moves").dataset.pairs;
     const infoBox = document.createElement("div");
     infoBox.classList.add("info-box");
     const infoName = document.createElement("p");
@@ -701,9 +696,12 @@ function manageGameDetails(players) {
     infoResCont.append(infoResult, infoPairs);
     infoBox.append(infoName, infoResCont);
     infoContainer.appendChild(infoBox);
+  
+    infoBox.addEventListener("click", () => {
+      addWinnerPlayer();
+    });
   }
-
-
+  
 
 
   //This determines the winner of the game
@@ -711,18 +709,21 @@ function manageGameDetails(players) {
   // showing it
 
   function addWinnerPlayer() {
-    const infoPairs = Array.from(
-      overlayElement.querySelectorAll(".info-pairs")
-    );
-    let newArray = infoPairs
+    const infoPairs = Array.from(overlayElement.querySelectorAll(".info-pairs"));
+    const sortedPairs = infoPairs
       .map((element, index) => {
         return { val: parseInt(element.textContent), index: index };
       })
       .sort((a, b) => b.val - a.val);
+  
     const infoBoxes = overlayElement.querySelectorAll(".info-box");
-    infoBoxes[newArray[0].index].classList.add("active");
+    infoBoxes.forEach((infoBox) => {
+      infoBox.classList.remove("active");
+    });
+  
+    infoBoxes[sortedPairs[0].index].classList.add("active");
   }
-
+  
 
 
 
@@ -734,6 +735,9 @@ function manageGameDetails(players) {
   });
 
 
+
+
+  
 
 
   // the function that will run when the user want to restart the game
@@ -751,7 +755,7 @@ function manageGameDetails(players) {
 
 
 
-  // call set up new game function  by reloading the game
+  // This calls the  set up new game function  by reloading the game
   //markup and calling the allFunctions() function.
   setUpNewGame()
 }

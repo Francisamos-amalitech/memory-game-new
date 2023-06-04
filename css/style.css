@@ -265,7 +265,7 @@ body.over .overlay .box .btn-container button {
   border-radius: 10px;
   font-size: 20px;
   font-weight: 700;
-  width:40%;
+  width:38%;
 }
 
 
@@ -290,7 +290,7 @@ body.over .overlay .box .btn-container button {
   flex: 1;
   text-align: center;
   border-radius: 25px;
-  padding: 10px 5px;
+  padding:10px 5px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -313,12 +313,12 @@ body.over .overlay .box .btn-container button {
   background-color: var(--yellow-background);
   color: white;
   width: 100%;
-  padding: 10px 5px;
-  border-radius: 15px;
+  padding:10px 5px;
+  border-radius:50px;
   outline: none;
   border: none;
   margin: 18px 0 0;
-  font-size: 20px;
+  font-size:20px;
   transition: 0.3s;
 }
 
@@ -475,9 +475,9 @@ body.over .overlay .box .btn-container button {
 
 
 
-.game-details .detail-box {
+.game-details .detail-box{
   display: flex;
-  padding: 1rem 0.75rem;
+  padding:1rem 0.75rem;
   background-color: var(--non-active-background);
   justify-content:center;
   align-items: center;
@@ -566,6 +566,20 @@ body.over .overlay .box .btn-container button {
 
  
 
+
+  .starting-game button {
+    padding:5px 0;
+  }
+
+
+  .starting-game .box .choices div{
+    padding:5px 2px; 
+  }
+
+
+
+
+
   .game-details{
     margin-top:40px;
   }
@@ -620,8 +634,12 @@ body.over .overlay .box{
   }
 
 
-
   
+  body.over .overlay .box{
+    width:90%;
+ 
+}
+
 }
 
 
@@ -634,13 +652,13 @@ body.over .overlay .box{
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 990px) {
   html {
     font-size: 12px;
   }
 
   .starting-game .box {
-    width:75%;
+    width:65%;
   }
 
 
@@ -648,11 +666,20 @@ body.over .overlay .box{
     font-size:40px;
     margin-bottom:50px;
   }
+
+  body.over .overlay .box{
+    width:65%;
+}
 }
 
 @media (max-width: 460px) {
   html {
     font-size: 7px;
   }
+
+  .starting-game .box{
+    width:85%;
+  }
 }
+
 
