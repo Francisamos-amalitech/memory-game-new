@@ -549,7 +549,7 @@ body.over .overlay .box .btn-container button {
 
 @media (max-width: 600px) {
   .starting-game .box {
-    padding: 2em 2em;
+    padding:2em 2em;
     font-size: 15px;
     width:95%;
   }
@@ -575,9 +575,6 @@ body.over .overlay .box .btn-container button {
   .starting-game .box .choices div{
     padding:5px 2px; 
   }
-
-
-
 
 
   .game-details{
@@ -668,7 +665,7 @@ body.over .overlay .box{
   }
 
   body.over .overlay .box{
-    width:65%;
+    width:80%;
 }
 }
 
