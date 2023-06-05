@@ -622,18 +622,17 @@ function manageGameDetails(players) {
 
 
 
+
+// --- THIS IS WHERE THE PROBLEM WAS
+
+
+
   // manage the overlay that appears when the game is over
   function manageOverlay() {
     document.body.classList.add("over");
     overlayElement.classList.remove("d-none");
   
     if (activeChoices[1] === "1-player") {
-      overlayElement.querySelector(".time-result").textContent =
-        timer.textContent;
-      overlayElement.querySelector(".info-result.moves-result").textContent = `${
-        document.querySelector(".detail-box .moves").textContent
-      } Moves`;
-      infoContainer.innerHTML = "";
       theMessage.innerHTML = "Player 1 wins!";
       generateInfoBox(1);
     } else {
@@ -706,6 +705,10 @@ function manageGameDetails(players) {
   
     infoBoxes[sortedPairs[0].index].classList.add("active");
   }
+
+
+
+  
   
   // select the restart game buttons and loop over 
   // them to restart the game
