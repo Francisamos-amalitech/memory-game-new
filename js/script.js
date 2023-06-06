@@ -640,7 +640,9 @@ function manageGameDetails(players) {
     } else {
       infoContainer.innerHTML = "";
       let winnerMessage = "";
-      if (activeChoices[1] === "2-players") {
+      if (activeChoices[1] === "1-player") {
+        winnerMessage = "Player 1 wins!";
+      } else if (activeChoices[1] === "2-players") {
         winnerMessage = "Player 2 wins!";
       } else if (activeChoices[1] === "3-players") {
         winnerMessage = "Player 3 wins!";
@@ -653,10 +655,8 @@ function manageGameDetails(players) {
       }
       addWinnerPlayer();
     }
+
   }
-  
-
-
 
 
   // generate the information box for each player
@@ -706,6 +706,14 @@ function manageGameDetails(players) {
     });
   
     infoBoxes[sortedPairs[0].index].classList.add("active");
+
+    
+    //-----CHANGED CODE------
+
+    theMessage.innerHTML = `${infoBoxes[sortedPairs[0].index].querySelector('.info-name').textContent} wins!`;
+
+
+    
   }
 
 
