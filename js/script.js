@@ -621,14 +621,6 @@ function manageGameDetails(players) {
 
 
 
-
-
-// --- THIS IS WHERE THE PROBLEM WAS
-
-
-
-
-
   // manage the overlay that appears when the game is over
   function manageOverlay() {
     document.body.classList.add("over");
