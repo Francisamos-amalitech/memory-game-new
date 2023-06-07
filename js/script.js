@@ -717,8 +717,7 @@ function manageGameDetails(players) {
     infoBoxes[sortedPairs[0].index].classList.add("active");
 
     
-    //-----CHANGED CODE------
-
+    //-----ADDED CODE------
     theMessage.innerHTML = `${infoBoxes[sortedPairs[0].index].querySelector('.info-name').textContent} wins!`;
 
 
