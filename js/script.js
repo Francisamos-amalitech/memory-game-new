@@ -701,7 +701,7 @@ function manageGameDetails(players) {
 
   //This determines the winner of the game
   //and adds the active class to their information box
-  // showing it
+
 
   function addWinnerPlayer() {
     const infoPairs = Array.from(overlayElement.querySelectorAll(".info-pairs"));
@@ -717,7 +717,8 @@ function manageGameDetails(players) {
     infoBoxes[sortedPairs[0].index].classList.add("active");
 
     
-    //-----ADDED CODE------
+
+    //---ADDED CODE----
     theMessage.innerHTML = `${infoBoxes[sortedPairs[0].index].querySelector('.info-name').textContent} wins!`;
 
 
@@ -725,8 +726,6 @@ function manageGameDetails(players) {
   }
 
 
-
-  
   
   // select the restart game buttons and loop over 
   // them to restart the game
