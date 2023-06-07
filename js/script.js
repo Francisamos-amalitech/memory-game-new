@@ -622,33 +622,50 @@ function manageGameDetails(players) {
 
 
   // manage the overlay that appears when the game is over
+  // function manageOverlay() {
+  //   document.body.classList.add("over");
+  //   overlayElement.classList.remove("d-none");
+  
+  //   if (activeChoices[1] === "1-player") {
+  //     theMessage.innerHTML = "Player 1 wins!";
+  //     generateInfoBox(i);
+  //   } else {
+  //     infoContainer.innerHTML = "";
+  //     let winnerMessage = "";
+  //     if (activeChoices[1] === "1-player") {
+  //       winnerMessage = "Player 1 wins!";
+  //     } else if (activeChoices[1] === "2-players") {
+  //       winnerMessage = "Player 2 wins!";
+  //     } else if (activeChoices[1] === "3-players") {
+  //       winnerMessage = "Player 3 wins!";
+  //     } else if (activeChoices[1] === "4-players") {
+  //       winnerMessage = "Player 4 wins!";
+  //     }
+  //     theMessage.innerHTML = winnerMessage;
+  //     for (let i = 1; i <= parseInt(activeChoices[1][0]); i++) {
+  //       generateInfoBox(i);
+  //     }
+  //     addWinnerPlayer();
+  //   }
+
+  // }
+
+
   function manageOverlay() {
     document.body.classList.add("over");
     overlayElement.classList.remove("d-none");
-  
-    if (activeChoices[1] === "1-player") {
-      theMessage.innerHTML = "Player 1 wins!";
-      generateInfoBox(i);
-    } else {
-      infoContainer.innerHTML = "";
-      let winnerMessage = "";
-      if (activeChoices[1] === "1-player") {
-        winnerMessage = "Player 1 wins!";
-      } else if (activeChoices[1] === "2-players") {
-        winnerMessage = "Player 2 wins!";
-      } else if (activeChoices[1] === "3-players") {
-        winnerMessage = "Player 3 wins!";
-      } else if (activeChoices[1] === "4-players") {
-        winnerMessage = "Player 4 wins!";
-      }
-      theMessage.innerHTML = winnerMessage;
+    infoContainer.innerHTML = "";
       for (let i = 1; i <= parseInt(activeChoices[1][0]); i++) {
         generateInfoBox(i);
       }
       addWinnerPlayer();
-    }
-
   }
+
+
+
+
+
+  
 
 
   // generate the information box for each player
